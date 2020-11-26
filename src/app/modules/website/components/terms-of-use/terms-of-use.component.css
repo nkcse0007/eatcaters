@@ -1,0 +1,7 @@
+/*terms page**/
+.terms-section{padding:30px 0px 60px;}
+.terms-content p{text-align: justify;;line-height: 30px;;}
+@media screen and (max-width:767px){
+    .terms-section{padding-top:10px}
+}
+

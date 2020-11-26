@@ -1,0 +1,30 @@
+<section class="login-page">
+  <div class="container">
+    <div class="login-part">
+      <div class="logo-part-login">
+        <img src="assets/images/logo.png" alt="">
+        <h3>Welcome to DietCater</h3>
+      </div>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width-mat">
+          <input matInput required formControlName="email" [ngClass]="{'is-invalid': submetted && f.email.errors}"
+            placeholder="Email">
+          <p class="errormsg" *ngIf="submetted && f.email.errors && f.email.touched">Please enter valid email</p>
+        </mat-form-field>
+        <mat-form-field class="full-width-mat">
+          <input matInput required formControlName="password" [ngClass]="{'is-invalid': submetted && f.password.errors}"
+            placeholder="Password" type="password">
+          <p class="errormsg" *ngIf="submetted && f.password.errors && f.password.touched">Please enter password</p>
+        </mat-form-field>
+        <div class="form-group">
+          <a class="mt5 float-left forgot-link" routerLink="/admin/forgot-password">Forgot Password?</a>
+          <!-- <input class="btn btn-primary float-right" type="submit" value="Login"> -->
+          <!-- <input class="btn btn-primary float-right" type="submit" value="Login"> -->
+          <input class="btn btn-primary float-right" type="submit" value="Login">
+          <div class="clearfix"></div>
+        </div>
+      </form>
+
+    </div>
+  </div>
+</section>

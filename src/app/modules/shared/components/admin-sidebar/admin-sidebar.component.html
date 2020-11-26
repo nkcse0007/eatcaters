@@ -1,0 +1,78 @@
+<div class="sidebar-bg">
+    <ul class="admin-sidebar-links">
+        <li><a (click)="hidemenu()" routerLink="/admin/dashboard" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:            true}"><i class="fas fa-tachometer-alt"></i> <span
+                    class="menu-txt">Dashboard</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/user" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                true}"><i class="fas fa-users"></i> <span
+                    class="menu-txt">Users</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/categories" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                true}"><i class="fas fa-clipboard-list"></i> <span
+                    class="menu-txt">Categories</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/items" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                    true}"><i class="fas fa-utensils"></i> <span
+                    class="menu-txt">Items</span></a></li>
+        <li>
+            <div class="dropdown sidebarmenu-dropdown"> <a id="dropdownMenuButton" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false"> <i class="fas fa-shield-alt"></i> <span
+                        class="menu-txt">Extra</span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"> <a class="dropdown-item"
+                        (click)="hidemenu()" routerLink="/admin/extra/sauces" routerLinkActive="active"
+                        routerLinkActiveOptions="{exact:                                true}">Sauces</a> <a
+                        class="dropdown-item" (click)="hidemenu()" routerLink="/admin/extra/side1"
+                        routerLinkActive="active"
+                        routerLinkActiveOptions="{exact:                                true}">Side 1</a> <a
+                        class="dropdown-item" (click)="hidemenu()" routerLink="/admin/extra/side2"
+                        routerLinkActive="active"
+                        routerLinkActiveOptions="{exact:                                true}">Side 2</a> <a
+                        class="dropdown-item" (click)="hidemenu()" routerLink="/admin/extra/additional"
+                        routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Additional</a>
+                </div>
+            </div>
+        </li>
+        <li><a (click)="hidemenu()" routerLink="/admin/drivers" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                        true}"><i class="fas fa-user-friends"></i> <span
+                    class="menu-txt">Drivers</span></a></li>
+        <!-- <li><a (click)="hidemenu()" routerLink="/admin/orders" routerLinkActive="active" routerLinkActiveOptions="{exact:                            true}"><i class="fas fa-cart-arrow-down"></i> <span class="menu-txt">Orders</span></a></li>        <li><a (click)="hidemenu()" routerLink="/admin/offers" routerLinkActive="active" routerLinkActiveOptions="{exact:                                true}"><i class="fas fa-dollar-sign"></i> <span class="menu-txt">Offers</span></a></li> -->
+        <li><a (click)="hidemenu()" routerLink="/admin/branch-status" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                                    true}"><i
+                    class="fas fa-exclamation-circle"></i> <span class="menu-txt">Branch Status</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/region" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                        true}"><i class="fas fa-clipboard-list"></i>
+                <span class="menu-txt">Regions</span></a></li>
+        <!-- <li><a (click)="hidemenu()" routerLink="/admin/notifications" routerLinkActive="active" routerLinkActiveOptions="{exact:                            true}"><i class="fas fa-clipboard-list"></i> <span                    class="menu-txt">Notifications</span></a></li> -->
+        <!-- <li><a (click)="hidemenu()" routerLink="/admin/careers" routerLinkActive="active" routerLinkActiveOptions="{exact:                            true}"><i class="fas fa-clipboard-list"></i> <span class="menu-txt">Careers</span></a>        </li> -->
+        <li><a (click)="hidemenu()" routerLink="/admin/careers" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:            true}"><i class="fas fa-clipboard-list"></i> <span
+                    class="menu-txt">Careers</span></a> </li>
+        <li><a (click)="hidemenu()" routerLink="/admin/banner-title" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:            true}"><i class="fas fa-exclamation-circle"></i> <span
+                    class="menu-txt">Banner Title</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/support" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                true}"><i class="fas fa-exclamation-circle"></i> <span
+                    class="menu-txt">Support</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/why-choose-dietcater" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:            true}"><i class="fas fa-exclamation-circle"></i> <span
+                    class="menu-txt">Why Choose</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/app-image" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                true}"><i class="fas fa-exclamation-circle"></i> <span
+                    class="menu-txt">App Image</span></a></li>
+        <!-- <li><a (click)="hidemenu()" routerLink="/admin/categories" routerLinkActive="active" routerLinkActiveOptions="{exact:                                true}"><i class="fas fa-clipboard-list"></i> <span                    class="menu-txt">Categories</span></a></li> -->
+        <li><a (click)="hidemenu()" routerLink="/admin/about-us" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:            true}"><i class="fas fa-hotel"></i> <span
+                    class="menu-txt">About Us</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/admin-faq" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                true}"><i class="fab fa-weixin"></i> <span
+                    class="menu-txt">FAQs</span></a></li>
+        <!-- <li><a  (click)="hidemenu()" routerLink="/admin/pages/admin-careers" routerLinkActive="active" routerLinkActiveOptions="{exact:            true}"><i class="fas   fa-chart-line"></i> <span class="menu-txt">Careers</span></a></li>  -->
+        <li><a (click)="hidemenu()" routerLink="/admin/admin-privacy-policy" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:            true}"><i class="fas fa-shield-alt"></i> <span
+                    class="menu-txt">Privacy Policy</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/terms-and-use" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                true}"><i class="fas fa-clipboard-list"></i> <span
+                    class="menu-txt">Terms Of Use</span></a></li>
+        <li><a (click)="hidemenu()" routerLink="/admin/settings/setting" routerLinkActive="active"
+                routerLinkActiveOptions="{exact:                    true}"><i class="fas fa-cog"></i> <span
+                    class="menu-txt">Settings</span></a></li>
+    </ul>
+</div>"

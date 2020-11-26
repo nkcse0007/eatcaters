@@ -1,0 +1,43 @@
+<app-admin-header></app-admin-header>
+<section class="main-and-sidebar-section ">
+       <div class="sidebar-area">
+              <app-admin-sidebar></app-admin-sidebar>
+       </div>
+       <div class="content-area">
+              <div class="row mt-2">
+                     <div class="col-sm-4 cstm-pading">
+                            <div class="common-part">
+                                   <div class="d-flex align-item-center"> <span
+                                                 class="common-iconpart bg-hrsale-secondary"> <i
+                                                        class="fas fa-users"></i> </span>
+                                          <div class="common-content-part">
+                                                 <strong>{{dashboardData?.userCount}}</strong> <small> Users
+                                                        Count</small> </div>
+                                   </div>
+                            </div>
+                     </div>
+                     <div class="col-sm-4 cstm-pading">
+                            <div class="common-part" routerLink="/admin/categories">
+                                   <div class="d-flex align-item-center"> <span
+                                                 class="common-iconpart bg-hrsale-success-4"> <i
+                                                        class="fas fa-clipboard-list"></i> </span>
+                                          <div class="common-content-part"> <strong>{{dashboardData?.catCount}}</strong>
+                                                 <small>Categories Count</small> </div>
+                                   </div>
+                            </div>
+                     </div>
+                     <div class="col-sm-4 cstm-pading">
+                            <div class="common-part" routerLink="/admin/items">
+                                   <div class="d-flex align-item-center"> <span
+                                                 class="common-iconpart bg-hrsale-warning-4"> <i
+                                                        class="fas fa-clipboard-list"></i> </span>
+                                          <div class="common-content-part">
+                                                 <strong>{{dashboardData?.itemCount}}</strong> <small>Items
+                                                        Count</small> </div>
+                                   </div>
+                            </div>
+                     </div>
+              </div>
+       </div>
+</section>
+<app-admin-footer></app-admin-footer>

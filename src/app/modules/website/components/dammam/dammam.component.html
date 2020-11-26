@@ -1,0 +1,15 @@
+<div class="inner-pages-content">
+    <section class="damman-section">
+        <div class="container">
+            <div class="section-heading-part">
+                <h2 *ngIf="language=='en'">Districts found at Dammam</h2>
+                <h2 *ngIf="language=='ar'">الاحياء الموجودة في الدمام</h2>
+            </div>
+            <div class="clearfix"></div>
+            <ul class="dist-list">
+                <li *ngFor="let region of regions"><a href="#">{{region?.name}} <i class="fas fa-chevron-right"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,200 @@
+<app-admin-header></app-admin-header>
+<section class="main-and-sidebar-section ">
+    <div class="sidebar-area">
+        <app-admin-sidebar></app-admin-sidebar>
+    </div>
+    <div class="content-area">
+
+        <!--loader code  <div class="loading-indicator" *ngIf="loader">            <mat-spinner mode="indeterminate"></mat-spinner>          </div>  -->
+
+        <h1 class="page-title">Items</h1>
+        <div class="mat-elevation-z8">
+            <div class="button-act-grp">
+                <div class=" float-left drop_div"> <button type="button" class="btn btn-primary btn-sm"
+                        (click)="addCategory()" data-toggle="modal" data-target="#addcategory">Add Item <i
+                            class="fa fa-plus"></i></button> </div>
+                <!-- <div class=" float-left drop_div">             <a class="delete-aal0s btn btn-danger btn-sm" id="delete_option" (click)="bulkDelete()" style="display: inline-block;"              href="javascript:;"><i class="fa fa-trash"></i></a>          </div> -->
+                <!-- <div class="langchangepart">               <span class="englishlang">English</span>               <label class="switch">                <input type="checkbox" value="true" >                <span class="slider round"></span>              </label>              <span class="argiclang">Arbic</span>           </div> -->
+            </div>
+            <mat-form-field class="float-right tablefilter"> <input matInput (keyup)="applyFilter($event.target.value)"
+                    placeholder="Search by Category Name"> </mat-form-field>
+            <div class="table-responsive">
+                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8  ">
+                    <ng-container matColumnDef="select">
+                        <th mat-header-cell *matHeaderCellDef="let element" style="width:45px;">
+                            <mat-checkbox (change)="$event ? masterToggle() : null"
+                                [checked]="selection.hasValue() && isAllSelected()"
+                                [indeterminate]="selection.hasValue() && !isAllSelected()"> </mat-checkbox>
+                        </th>
+                        <td mat-cell *matCellDef="let row">
+                            <mat-checkbox (click)="$event.stopPropagation()"
+                                (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+                            </mat-checkbox>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="name">
+                        <th mat-header-cell *matHeaderCellDef>Item Name(in English)</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="nameArabic">
+                        <th mat-header-cell *matHeaderCellDef>Item Name(in Arabic) </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.nameArabic}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="categoryName(InEnglish)">
+                        <th mat-header-cell *matHeaderCellDef>Category Name(in English) </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.categoryId?.name}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="categoryName(InArabic)">
+                        <th mat-header-cell *matHeaderCellDef>Category Name(in Arabic) </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.categoryId?.nameArabic}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="calories">
+                        <th mat-header-cell *matHeaderCellDef>Calories </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.calories}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="protien">
+                        <th mat-header-cell *matHeaderCellDef>Protien </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.protien}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="carb">
+                        <th mat-header-cell *matHeaderCellDef>Carb </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.carb}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="fat">
+                        <th mat-header-cell *matHeaderCellDef>fat</th>
+                        <td mat-cell *matCellDef="let element"> {{element?.fat}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="price">
+                        <th mat-header-cell *matHeaderCellDef>Price </th>
+                        <td mat-cell *matCellDef="let element"> {{element?.price}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="image">
+                        <th mat-header-cell *matHeaderCellDef style="width:150px;"> Image</th>
+                        <td mat-cell *matCellDef="let element"> <img
+                                onerror="this.onerror=null;this.src='/assets/images/home-food.png';"
+                                [src]="element?.image " width="40" alt=""> </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef style="width:140px;">Action</th>
+                        <td mat-cell class="datatable-ct" *matCellDef="let element"> <a href="javascript:void()"
+                                data-toggle="modal" data-target="#addcategory" class="btn btn-primary actnbtn"
+                                (click)="patchValue(element)"> <i class="fa fa-edit" aria-hidden="true"></i></a> <a
+                                href="javascript:void()" data-toggle="modal" data-target="#addcategory"
+                                class="btn btn-primary actnbtn" (click)="viewCategory(element)"> <i class="fa fa-eye"
+                                    aria-hidden="true"></i></a> <a href="javascript:void()"
+                                class="on-default btn btn-danger remove-row actnbtn"
+                                (click)="deleteCategory(element._id)"><i class="fa fa-trash" aria-hidden="true"></i>
+                            </a> </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"> </tr>
+                </table>
+            </div>
+            <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+        <!-- <ul class="category-list">             <li><span class="cat-image"><img src="assets/images/home-food.png" alt=""></span> <span class="cat-name">Category 1</span> <span class="actnpart"><a class="btn btn-primary" data-toggle="modal" data-target="#addcategory"  href="javascript:;"><i class="fa fa-edit"></i></a> <a class="btn btn-danger" href="javascript:;"><i class="fa fa-trash"></i></a></span></li>              <li><span class="cat-image"><img src="assets/images/home-food.png" alt=""></span> <span class="cat-name">Category 1</span> <span class="actnpart"><a class="btn btn-primary" data-toggle="modal" data-target="#addcategory"  href="javascript:;"><i class="fa fa-edit"></i></a> <a class="btn btn-danger" href="javascript:;"><i class="fa fa-trash"></i></a></span></li>              <li><span class="cat-image"><img src="assets/images/home-food.png" alt=""></span> <span class="cat-name">Category 1</span> <span class="actnpart"><a class="btn btn-primary" data-toggle="modal" data-target="#addcategory"  href="javascript:;"><i class="fa fa-edit"></i></a> <a class="btn btn-danger" href="javascript:;"><i class="fa fa-trash"></i></a></span></li>              <li><span class="cat-image"><img src="assets/images/home-food.png" alt=""></span> <span class="cat-name">Category 1</span> <span class="actnpart"><a class="btn btn-primary" data-toggle="modal" data-target="#addcategory"  href="javascript:;"><i class="fa fa-edit"></i></a> <a class="btn btn-danger" href="javascript:;"><i class="fa fa-trash"></i></a></span></li>              <li><span class="cat-image"><img src="assets/images/home-food.png" alt=""></span> <span class="cat-name">Category 1</span> <span class="actnpart"><a class="btn btn-primary" data-toggle="modal" data-target="#addcategory"  href="javascript:;"><i class="fa fa-edit"></i></a> <a class="btn btn-danger" href="javascript:;"><i class="fa fa-trash"></i></a></span></li>              <li><span class="cat-image"><img src="assets/images/home-food.png" alt=""></span> <span class="cat-name">Category 1</span> <span class="actnpart"><a class="btn btn-primary" data-toggle="modal" data-target="#addcategory"  href="javascript:;"><i class="fa fa-edit"></i></a> <a class="btn btn-danger" href="javascript:;"><i class="fa fa-trash"></i></a></span></li>             </ul> -->
+    </div>
+    <app-admin-footer></app-admin-footer>
+    <div class="modal" id="addcategory">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title">{{modalTitle}}</h5> <button type="button" class="close"
+                        data-dismiss="modal">&times;</button>
+                </div> <!-- Modal body -->
+                <div class="modal-body">
+                    <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+                        <!-- <div class="loading-indicator" *ngIf="loader">            <mat-spinner mode="indeterminate"></mat-spinner>          </div>  -->
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="langheading">For English Language</h5>
+                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Category name"
+                                        formControlName="name" required>
+                                    <mat-error>This field is required</mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="langheading">For Arabic Language</h5>
+                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Category name"
+                                        formControlName="nameArabic" style="direction: rtl;text-align:right;;">
+                                    <mat-error style="direction: rtl;text-align:right;;">This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="langheading">Category(In English)</h5>
+                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Drop Down"
+                                        formControlName="categoryEnglish">
+                                    <mat-error>This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="langheading">Category(In Arabic)</h5>
+                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Drop Down"
+                                        formControlName="categoryArabic" style="direction: rtl;text-align:right;;">
+                                    <mat-error style="direction: rtl;text-align:right;;">This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="langheading">Calories</h5>
+                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Calories"
+                                        formControlName="calories">
+                                    <mat-error>This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="langheading">Carb</h5>
+                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Carb"
+                                        formControlName="carb">
+                                    <mat-error>This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="langheading">Fat</h5>
+                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Fat"
+                                        formControlName="fat">
+                                    <mat-error>This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="langheading">Protien</h5>
+                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Protien"
+                                        formControlName="protien">
+                                    <mat-error>This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <h5 class="langheading">Price</h5>
+                                <mat-form-field class="full-width-mat"> <input matInput placeholder="price"
+                                        formControlName="price">
+                                    <mat-error>This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="form-group"> <label>Item Image</label>
+                            <div class="files-impt" *ngIf="uploadedImage==''">
+                                <div class="files-imptinput"> <input type="file" id="file" name="image"
+                                        (change)="fileupload($event)" class="fileinput"> </div>
+                            </div>
+                            <div class="uploaded-imagepart" *ngIf="uploadedImage!=''">
+                                <div class="uploadedimage"> <img [src]="uploadedImage" alt=""> <img [src]="imagePath"
+                                        alt="" *ngIf="imagePath!=''"> <span class="imageremovebtn"
+                                        (click)="removeuploaedImage()"><i class="fas fa-close"></i></span></div>
+                            </div>
+                        </div>
+                        <div class="  text-right"> <input type="submit" value="Save" [disabled]="!categoryForm.valid"
+                                class="btn btn-primary mr-2"> <button type="button" class="btn btn-primary"
+                                data-dismiss="modal">Close</button> </div>
+                    </form>
+                </div> <!-- Modal footer -->
+            </div>
+        </div>
+    </div>"

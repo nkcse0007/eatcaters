@@ -1,0 +1,143 @@
+<div class="inner-pages-content">
+	<section class="career-section">
+		<section class="inner-page-banner-sec">
+			<div class="container">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="row">
+						<div class="col-sm-7 inerpage-bnr-content">
+							<h1 *ngIf="language=='en'">Careers</h1>
+							<h1 *ngIf="language=='ar'"> مسار مهني مسار وظيفي</h1>
+							<p *ngIf="language=='en'">{{careerTitle?.career}} </p>
+							<p *ngIf="language=='ar'">{{careerTitle?.careerArabic}} </p>
+						</div>
+						<div class="col-sm-5 inerpage-bnr-image"><img src="assets/images/home-food.png" alt=""> </div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="container">
+			<!-- <div class="section-heading-part"><h2>Career</h2><p>tWould you like to join DietCater? Here you can find current vacancies </p></div> -->
+			<div class="clearfix"></div>
+		</div>
+		<div class="tab-content-section">
+			<div class="container">
+				<nav>
+					<div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist"> <a
+							class="nav-item nav-link active" (click)="careerFilter('1')" id="nav-home-tab"
+							data-toggle="tab" href="#sales" role="tab" aria-controls="nav-home"
+							aria-selected="true"><span *ngIf="language=='en'">Sales</span><span
+								*ngIf="language=='ar'">مبيعات</span> </a> <a class="nav-item nav-link"
+							id="nav-profile-tab" (click)="careerFilter('2')" data-toggle="tab" href="#growthperformance"
+							role="tab" aria-controls="nav-profile" aria-selected="false"> <span
+								*ngIf="language=='en'">Growth & Performance</span> <span *ngIf="language=='ar'">أداء
+								النمو</span></a> <a class="nav-item nav-link" id="nav-contact-tab"
+							(click)="careerFilter('3')" data-toggle="tab" href="#marketing" role="tab"
+							aria-controls="nav-contact" aria-selected="false"><span
+								*ngIf="language=='en'">Marketing</span> <span *ngIf="language=='ar'">تسويق</span> </a>
+						<a class="nav-item nav-link" id="nav-contact-tab" (click)="careerFilter('4')" data-toggle="tab"
+							href="#people" role="tab" aria-controls="nav-contact" aria-selected="false"><span
+								*ngIf="language=='en'">People</span> <span *ngIf="language=='ar'">اشخاص</span> </a> <a
+							class="nav-item nav-link" id="nav-contact-tab" (click)="careerFilter('5')" data-toggle="tab"
+							href="#technology" role="tab" aria-controls="nav-contact" aria-selected="false"><span
+								*ngIf="language=='en'">Technology</span> <span *ngIf="language=='ar'">تقنية</span> </a>
+						<a class="nav-item nav-link" id="nav-contact-tab" (click)="careerFilter('6')" data-toggle="tab"
+							href="#finance" role="tab" aria-controls="nav-contact" aria-selected="false"><span
+								*ngIf="language=='en'">Finance</span> <span *ngIf="language=='ar'">المالية</span> </a>
+					</div>
+				</nav>
+				<div class="tab-content" id="nav-tabContent">
+					<div class="tab-pane fade show active" id="sales" role="tabpanel" aria-labelledby="nav-home-tab">
+						<div class="career-tab-content">
+							<div class="row custom-margin">
+								<div class="col-lg-3 col-sm-4 custom-padding"
+									*ngFor="let careerType of careerTypeArray">
+									<div class="career-content">
+										<h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
+										<h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
+										<p><i class="fas fa-map-marker-alt"></i> <span
+												class="location-content">{{careerType.location}}</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="growthperformance" role="tabpanel" aria-labelledby="nav-profile-tab">
+						<div class="career-tab-content">
+							<div class="row custom-margin">
+								<div class="col-lg-3 col-sm-4 custom-padding"
+									*ngFor="let careerType of careerTypeArray">
+									<div class="career-content">
+										<h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
+										<h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
+										<p><i class="fas fa-map-marker-alt"></i> <span
+												class="location-content">{{careerType.location}}</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="marketing" role="tabpanel" aria-labelledby="nav-contact-tab">
+						<div class="career-tab-content">
+							<div class="row custom-margin">
+								<div class="col-lg-3 col-sm-4 custom-padding"
+									*ngFor="let careerType of careerTypeArray">
+									<div class="career-content">
+										<h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
+										<h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
+										<p><i class="fas fa-map-marker-alt"></i> <span
+												class="location-content">{{careerType.location}}</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="people" role="tabpanel" aria-labelledby="nav-contact-tab">
+						<div class="career-tab-content">
+							<div class="row custom-margin">
+								<div class="col-lg-3 col-sm-4 custom-padding"
+									*ngFor="let careerType of careerTypeArray">
+									<div class="career-content">
+										<h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
+										<h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
+										<p><i class="fas fa-map-marker-alt"></i> <span
+												class="location-content">{{careerType.location}}</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="technology" role="tabpanel" aria-labelledby="nav-contact-tab">
+						<div class="career-tab-content">
+							<div class="row custom-margin">
+								<div class="col-lg-3 col-sm-4 custom-padding"
+									*ngFor="let careerType of careerTypeArray">
+									<div class="career-content">
+										<h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
+										<h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
+										<p><i class="fas fa-map-marker-alt"></i> <span
+												class="location-content">{{careerType.location}}</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="finance" role="tabpanel" aria-labelledby="nav-contact-tab">
+						<div class="career-tab-content">
+							<div class="row custom-margin">
+								<div class="col-lg-3 col-sm-4 custom-padding"
+									*ngFor="let careerType of careerTypeArray">
+									<div class="career-content">
+										<h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
+										<h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
+										<p><i class="fas fa-map-marker-alt"></i> <span
+												class="location-content">{{careerType.location}}</span></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>

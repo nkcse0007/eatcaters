@@ -1,0 +1,33 @@
+
+.header-part{display:flex;background: #75ad3f;;}
+.header-right-info {
+    margin-top: 13px;
+}
+.usrimghdr {
+    background: #fff;
+    padding: 2px;
+    border-radius: 50%;
+}
+.header-right-info .navbar-nav>li .dropdown-menu {
+    border: 0px solid #ccc;
+    border: 0px solid rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.175);
+    box-shadow: 0 1px 4px rgba(0,0,0,.175);
+}
+.admin-logo-part{width:15%;padding-right:15px;text-align: center;background: #fff;;}
+.admin-header-part{width:86%;padding-right:15px;}
+
+.dropdown-header-top{position: relative;transform:translate3d(0px, 45px, 0px) !important;}
+.dropdown-header-top::before{position: absolute;content:"";right:5px;top:-8px;width:8px;height:8px; border-bottom:10px solid #fff;border-right: 8px solid transparent;border-left: 8px solid transparent;}
+.dropdown-header-top a {
+    display: block;color: #333;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+.dropdown-header-top a:hover, .dropdown-header-top a .active{background: #fbfbfb;}
+.mai-top-nav a.dropdown-toggle {
+    color: #fff;
+}
+.admin-logo-part img {
+    max-width: 50px;margin:3px 0px;
+}

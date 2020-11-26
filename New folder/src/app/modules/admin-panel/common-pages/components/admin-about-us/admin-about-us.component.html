@@ -1,0 +1,11 @@
+<h1 class="page-title">About Us</h1>
+ 
+  <mat-form-field class="full-width-mat">
+    <input matInput   placeholder="Title"> 
+  </mat-form-field>
+  <label>Description</label>
+<app-ngx-editor [placeholder]="'Enter text here...'" [config]="editorConfig" 
+[spellcheck]="true"></app-ngx-editor>
+<div class="text-right">
+  <input type="button" class="btn btn-primary mt-3" value="Save">
+</div> 

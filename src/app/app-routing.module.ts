@@ -24,6 +24,7 @@ import { AdditionalComponent } from './modules/admin-panel/common-pages/componen
 import { AboutusComponent } from './modules/admin-panel/common-pages/components/aboutus/aboutus.component';
 import { TermsAndUseComponent } from './modules/admin-panel/common-pages/components/terms-and-use/terms-and-use.component';
 import { AdminFaqComponent } from './modules/admin-panel/common-pages/components/admin-faq/admin-faq.component';
+import { AdminPrivacyPolicyComponent } from './modules/admin-panel/common-pages/components/admin-privacy-policy/admin-privacy-policy.component';
 const routes: Routes = [
   { path: 'admin/dashboard', component: DashboardComponent },
   { path: 'admin/categories', component: CategoryComponent },
@@ -41,15 +42,11 @@ const routes: Routes = [
   { path: 'admin/extra/side2', component: Side2Component },
   { path: 'admin/extra/additional', component: AdditionalComponent },
   { path: 'admin/admin-faq', component: AdminFaqComponent },
-
-
-
-
-
   { path: 'admin/why-choose-dietcater', component: WhychooseComponent },
   { path: 'admin/app-image', component: AppimageComponent },
   { path: 'admin/banner-title', component: BannertitleComponent },
   { path: 'admin/support', component: SupportComponent },
+  { path: 'admin/admin-privacy-policy', component: AdminPrivacyPolicyComponent },
   {
     path: '',
     loadChildren: () => import('./modules/website/website.module').then(module => module.WebsiteModule)

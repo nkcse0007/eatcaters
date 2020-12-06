@@ -1,1 +1,30 @@
-<p>bannertitle works!</p>
+<app-admin-header></app-admin-header>
+<section class="main-and-sidebar-section ">
+    <div class="sidebar-area">
+        <app-admin-sidebar></app-admin-sidebar>
+    </div>
+    <div class="content-area">
+        <h1 class="page-title">Banner Title</h1>
+
+        <!-- <mat-form-field class="full-width-mat">
+    <input matInput   placeholder="Title"> 
+  </mat-form-field> -->
+
+        <div class="row">
+            <div class="col-sm-6">
+                <label>Description</label>
+                <app-ngx-editor [config]="editorConfig" [spellcheck]="true"></app-ngx-editor>
+            </div>
+            <div class="col-sm-6">
+                <label class="descLableArabic">Description</label>
+                <app-ngx-editor [config]="editorConfig2" style="direction: rtl;text-align:right;;" [spellcheck]="true">
+                </app-ngx-editor>
+            </div>
+        </div>
+        <div class="text-right">
+            <input type="button" class="btn btn-primary mt-3" value="Save">
+        </div>
+    </div>
+
+</section>
+<app-admin-footer></app-admin-footer>

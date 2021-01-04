@@ -11,5 +11,4 @@ export class SupportComponent implements OnInit {
 
   ngOnInit() {
   }
-
 }

@@ -21,17 +21,17 @@
                               (keyup)="applyFilter($event.target.value)" placeholder="Search by Category Name">
                   </mat-form-field>
                   <div class="table-responsive">
-                        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8  ">
+                        <table style="    width: 100%;" mat-table [dataSource]="dataSource" class="mat-elevation-z8  ">
                               <ng-container matColumnDef="select">
                                     <th mat-header-cell *matHeaderCellDef="let element" style="width:45px;">
                                           <mat-checkbox (change)="$event ? masterToggle() : null"
-                                                [checked]="selection.hasValue() && isAllSelected()"
-                                                [indeterminate]="selection.hasValue() && !isAllSelected()">
+                                                        [checked]="selection.hasValue() && isAllSelected()"
+                                                        [indeterminate]="selection.hasValue() && !isAllSelected()">
                                           </mat-checkbox>
                                     </th>
                                     <td mat-cell *matCellDef="let row">
                                           <mat-checkbox (click)="$event.stopPropagation()"
-                                                (change)="$event ? selection.toggle(row) : null"
+                                                        (change)="$event ? selection.toggle(row) : null"
                                                 [checked]="selection.isSelected(row)"> </mat-checkbox>
                                     </td>
                               </ng-container>
@@ -50,18 +50,33 @@
                                                 [src]="element?.image " width="40" alt=""> </td>
                               </ng-container>
                               <ng-container matColumnDef="action">
-                                    <th mat-header-cell *matHeaderCellDef style="width:140px;">Action</th>
-                                    <td mat-cell class="datatable-ct" *matCellDef="let element"> <a
-                                                href="javascript:void()" data-toggle="modal" data-target="#addcategory"
-                                                class="btn btn-primary actnbtn" (click)="patchValue(element)"> <i
-                                                      class="fa fa-edit" aria-hidden="true"></i></a> <a
-                                                href="javascript:void()" data-toggle="modal" data-target="#addcategory"
-                                                class="btn btn-primary actnbtn" (click)="viewCategory(element)">
-                                                <i class="fa fa-eye" aria-hidden="true"></i></a> <a
-                                                href="javascript:void()"
-                                                class="on-default btn btn-danger remove-row actnbtn"
-                                                (click)="deleteCategory(element._id)"><i class="fa fa-trash"
-                                                      aria-hidden="true"></i> </a> </td>
+                                    <th mat-header-cell *matHeaderCellDef style="width:180px;">Action</th>
+                                    <td mat-cell class="datatable-ct" *matCellDef="let element">
+                                          <a
+                                                  href="javascript:void()" data-toggle="modal"
+                                                  data-target="#addcategory"
+                                                  class="btn btn-primary actnbtn" (click)="patchValue(element)">
+                                                <i
+                                                        class="fa fa-edit" aria-hidden="true">
+
+                                                </i>
+                                          </a>
+                                          <a
+                                                  href="javascript:void()" data-toggle="modal"
+                                                  data-target="#addcategory" style="margin: 2px;"
+                                                  class="btn btn-primary actnbtn"
+                                                  (click)="viewCategory(element)">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                          </a>
+                                          <a
+                                                  href="javascript:void()"
+                                                  class="on-default btn btn-danger remove-row actnbtn"
+                                                  (click)="deleteCategory(element._id)"><i class="fa fa-trash"
+                                                                                           aria-hidden="true">
+
+                                          </i>
+                                          </a>
+                                    </td>
                               </ng-container>
                               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
                               <tr mat-row *matRowDef="let row; columns: displayedColumns;"> </tr>
@@ -104,16 +119,28 @@
                                           </div>
                                     </div>
                                     <div class="form-group"> <label>Category Image</label>
-                                          <div class="files-impt" *ngIf="uploadedImage==''">
-                                                <div class="files-imptinput"> <input type="file" id="file" name="image"
-                                                            (change)="fileupload($event)" class="fileinput"> </div>
-                                          </div>
-                                          <div class="uploaded-imagepart" *ngIf="uploadedImage!=''">
-                                                <div class="uploadedimage"> <img [src]="uploadedImage" alt="">
-                                                      <img [src]="imagePath" alt="" *ngIf="imagePath!=''"> <span
-                                                            class="imageremovebtn" (click)="removeuploaedImage()"><i
-                                                                  class="fas fa-close"></i></span></div>
-                                          </div>
+<!--                                          <div class="files-impt" *ngIf="uploadedImage==''">-->
+<!--                                                <div class="files-imptinput"> <input type="file" id="file" name="image"-->
+<!--                                                            (change)="fileupload($event)" class="fileinput"> </div>-->
+<!--                                          </div>-->
+<!--                                          <div class="uploaded-imagepart" *ngIf="uploadedImage!=''">-->
+<!--                                                <div class="uploadedimage"> <img [src]="uploadedImage" alt="">-->
+<!--                                                      <img [src]="imagePath" alt="" *ngIf="imagePath!=''"> <span-->
+<!--                                                            class="imageremovebtn" (click)="removeuploaedImage()"><i-->
+<!--                                                                  class="fas fa-close"></i></span></div>-->
+<!--                                          </div>-->
+
+
+
+                                          <ngx-dropzone (change)="onSelect($event)">
+                                                <ngx-dropzone-label>Drop file, here!</ngx-dropzone-label>
+                                                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                                      <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                                </ngx-dropzone-preview>
+                                          </ngx-dropzone>
+
+
+
                                     </div>
                                     <div class="  text-right"> <input type="submit" value="Save"
                                                 [disabled]="!categoryForm.valid" class="btn btn-primary mr-2">
@@ -125,4 +152,5 @@
                   </div>
             </div>
       </div>
+
       <app-admin-footer></app-admin-footer>

@@ -1,8 +1,6 @@
-import {
-    HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse
-} from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError, retry} from 'rxjs/operators';
 
 export class HttpErrorInterceptor implements HttpInterceptor {
 
@@ -11,7 +9,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
         return next.handle(request)
 
             .pipe(
-
                 retry(1),
 
                 catchError((error: HttpErrorResponse) => {
@@ -37,8 +34,7 @@ export class HttpErrorInterceptor implements HttpInterceptor {
                     return throwError(errorMessage);
 
                 })
-
-            )
+            );
 
     }
 

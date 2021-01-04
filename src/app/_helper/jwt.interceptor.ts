@@ -1,18 +1,20 @@
-import { Observable, throwError } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
+import {Observable, throwError} from 'rxjs';
+import {catchError, tap} from 'rxjs/operators';
 
-import { Injectable } from '@angular/core';
-import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest, HttpResponse} from '@angular/common/http';
 
-import { Router } from '@angular/router';
-import { NgxSpinnerService } from 'ngx-spinner';
+import {Router} from '@angular/router';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
 
-    constructor(private router: Router, private spinner: NgxSpinnerService) { }
+    constructor(private router: Router, private spinner: NgxSpinnerService) {
+    }
+
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        this.spinner.show()
+        this.spinner.show();
 
         // add authorization header with jwt token if available
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -26,21 +28,21 @@ export class JwtInterceptor implements HttpInterceptor {
         }
 
         return next.handle(request).pipe(tap((event: HttpEvent<any>) => {
-            if (event instanceof HttpResponse) {
+                if (event instanceof HttpResponse) {
 
-                if (event.body.status && event.body.status === 401) {
-                    this.router.navigate(['/login']);
-                    localStorage.removeItem('currentUser');
-                    return;
+                    if (event.body.status && event.body.status === 401) {
+                        this.router.navigate(['/login']);
+                        localStorage.removeItem('currentUser');
+                        return;
+                    }
+                    this.spinner.hide();
                 }
-                this.spinner.hide();
-            }
-        }), catchError((response: any) => {
+            }), catchError((response: any) => {
 
-            if (response instanceof HttpErrorResponse) {
-                return throwError(response);
-            }
-        })
+                if (response instanceof HttpErrorResponse) {
+                    return throwError(response);
+                }
+            })
         );
     }
 }

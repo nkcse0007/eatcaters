@@ -5,8 +5,8 @@
                 <div class="col-sm-7 about-content-side">
                     <h2 *ngIf="language=='en'">About Us</h2>
                     <h2 *ngIf="language=='ar'">معلومات عنا</h2>
-                    <p *ngIf="language=='en'" [innerHtml]="aboutData"> </p>
-                    <p *ngIf="language=='ar'" [innerHtml]="aboutArbicContent"> </p>
+                    <p *ngIf="language=='en'" [innerHtml]="aboutData"></p>
+                    <p *ngIf="language=='ar'" [innerHtml]="aboutArbicContent"></p>
                 </div>
                 <div class="col-sm-5 about-image-part"><img src="assets/images/imageone.jpg" alt=""></div>
             </div>
@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-4">
                     <div class="choose-part">
-                        <div class="choose-icon-part"> <i class="fas fa-map-marked-alt"></i> </div>
+                        <div class="choose-icon-part"><i class="fas fa-map-marked-alt"></i></div>
                         <h4 *ngIf="language=='en'">Select location</h4>
                         <h4 *ngIf="language=='ar'">اختر موقعا</h4>
                         <p *ngIf="language=='en'">{{whyChooseArray?.location}}</p>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <div class="choose-part">
-                        <div class="choose-icon-part"> <i class="fas fa-store"></i> </div>
+                        <div class="choose-icon-part"><i class="fas fa-store"></i></div>
                         <h4 *ngIf="language=='en'">Choose store</h4>
                         <h4 *ngIf="language=='ar'">اختر المتجر</h4>
                         <p *ngIf="language=='en'">{{whyChooseArray?.store}}</p>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-sm-12 col-md-4">
                     <div class="choose-part">
-                        <div class="choose-icon-part"> <i class="fas fa-cash-register"></i> </div>
+                        <div class="choose-icon-part"><i class="fas fa-cash-register"></i></div>
                         <h4 *ngIf="language=='en'">Pay and wait</h4>
                         <h4 *ngIf="language=='ar'">ادفع وانتظر</h4>
                         <p *ngIf="language=='en'">{{whyChooseArray?.payandwait}}</p>

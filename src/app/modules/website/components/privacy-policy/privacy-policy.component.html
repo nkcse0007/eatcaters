@@ -1,1 +1,13 @@
-<div class="inner-pages-content">    <section class="policy-section">            <div class="container">        <div class="section-heading-part">          <h2 *ngIf="language=='en'">Privacy Policy</h2>          <h2 *ngIf="language=='ar'">سياسة خاصة</h2>          <p *ngIf="language=='en'">Please read with understanding before using our services</p>          <p *ngIf="language=='ar'">يرجى القراءة بفهم قبل استخدام خدماتنا</p>        </div>          <div class="clearfix"></div>        <div class="policy-content" >             <p *ngIf="language=='en'"  [innerHtml]="policyContent"> </p>            <p *ngIf="language=='ar'" [innerHtml]="policyArabicContent"> </p>            </div>      </div>    </section>  </div>
+<div class="inner-pages-content">
+    <section class="policy-section">
+        <div class="container">
+            <div class="section-heading-part"><h2 *ngIf="language=='en'">Privacy Policy</h2>
+                <h2 *ngIf="language=='ar'">سياسة خاصة</h2>
+                <p *ngIf="language=='en'">Please read with understanding before using our services</p>
+                <p *ngIf="language=='ar'">يرجى القراءة بفهم قبل استخدام خدماتنا</p></div>
+            <div class="clearfix"></div>
+            <div class="policy-content"><p *ngIf="language=='en'" [innerHtml]="policyContent"></p>
+                <p *ngIf="language=='ar'" [innerHtml]="policyArabicContent"></p></div>
+        </div>
+    </section>
+</div>

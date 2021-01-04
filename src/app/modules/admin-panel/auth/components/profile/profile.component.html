@@ -1,139 +1,139 @@
 <app-admin-header></app-admin-header>
 <section class="main-and-sidebar-section ">
-  <div class="sidebar-area">
-    <app-admin-sidebar></app-admin-sidebar>
-  </div>
-  <div class="content-area">
-    <h1 class="page-title">Profile</h1>
-    <div class="profile-section">
-      <div class="profile-info-page">
-        <!-- <div class="usrimg-sec">
-              <img src="assets/images/default.jpg">
-                 <input type="button" data-target="#editprofile" data-toggle="modal" class="btn btn-primary mt-4 float-right"
-                value="Edit Profile">
-            </div> -->
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="usrimg-sec">
-              <div class="image-bg">
-                <img src="{{uploadedImage}}">
-              </div>
-              <div class="usrinfo">
-                <strong>{{profileData?.name}}</strong>
-                <p>{{profileData?.email}}</p>
-              </div>
-              <!-- <strong>John Doe</strong> -->
-              <input type="button" data-target="#editprofile" data-toggle="modal" class="btn btn-primary mt-3  "
-                value="Edit Profile">
-              <div class="clearfix"></div>
-            </div>
-          </div>
-          <div class="col-sm-7">
-            <h3>Account Information</h3>
-            <ul class="profile-info">
-              <li>
-                <label>Name :</label>
-                <p>{{profileData?.name}}</p>
-              </li>
-              <li>
-                <label>Email :</label>
-                <p>{{profileData?.email}}</p>
-              </li>
-              <li>
-                <label>Phone :</label>
-                <p>{{profileData?.phoneNumber}}</p>
-              </li>
-              <li>
-                <label>Address :</label>
-                <p>{{profileData?.address}}</p>
-              </li>
-              <li>
-                <label>Location :</label>
-                <p>{{profileData?.location}}</p>
-              </li>
-
-
-            </ul>
-          </div>
-        </div>
-        <div class="clearfix"></div>
-      </div>
+    <div class="sidebar-area">
+        <app-admin-sidebar></app-admin-sidebar>
     </div>
-  </div>
+    <div class="content-area">
+        <h1 class="page-title">Profile</h1>
+        <div class="profile-section">
+            <div class="profile-info-page">
+                <!-- <div class="usrimg-sec">
+                      <img src="assets/images/default.jpg">
+                         <input type="button" data-target="#editprofile" data-toggle="modal" class="btn btn-primary mt-4 float-right"
+                        value="Edit Profile">
+                    </div> -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="usrimg-sec">
+                            <div class="image-bg">
+                                <img src="{{uploadedImage}}">
+                            </div>
+                            <div class="usrinfo">
+                                <strong>{{profileData?.name}}</strong>
+                                <p>{{profileData?.email}}</p>
+                            </div>
+                            <!-- <strong>John Doe</strong> -->
+                            <input type="button" data-target="#editprofile" data-toggle="modal"
+                                   class="btn btn-primary mt-3  "
+                                   value="Edit Profile">
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h3>Account Information</h3>
+                        <ul class="profile-info">
+                            <li>
+                                <label>Name :</label>
+                                <p>{{profileData?.name}}</p>
+                            </li>
+                            <li>
+                                <label>Email :</label>
+                                <p>{{profileData?.email}}</p>
+                            </li>
+                            <li>
+                                <label>Phone :</label>
+                                <p>{{profileData?.phoneNumber}}</p>
+                            </li>
+                            <li>
+                                <label>Address :</label>
+                                <p>{{profileData?.address}}</p>
+                            </li>
+                            <li>
+                                <label>Location :</label>
+                                <p>{{profileData?.location}}</p>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
 </section>
 <app-admin-footer></app-admin-footer>
 
 <div class="modal" id="editprofile">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h5 class="modal-title">Edit Profile</h5>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="upldimgcrle">
-
-              <img src="{{uploadedImage}}">
-              <i class="fa fa-edit uplimgedit">
-                <input class="imgupinpt" type="file" />
-              </i>
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Profile</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
-          </div>
-          <div class="col-sm-8">
-            <div class="row">
-              <div class="col-sm-6">
-                <mat-form-field class="full-width-mat">
-                  <input matInput placeholder="First Name" value="{{profileData?.name}}">
-                </mat-form-field>
-              </div>
-              <div class="col-sm-6">
-                <mat-form-field class="full-width-mat">
-                  <input matInput placeholder="Last Name" value="{{profileData?.name}}">
-                </mat-form-field>
-              </div>
-              <div class="col-sm-6">
-                <mat-form-field class="full-width-mat">
-                  <input matInput placeholder="Email" value="{{profileData?.email}}">
-                </mat-form-field>
-              </div>
-              <div class="col-sm-6">
-                <mat-form-field class="full-width-mat">
-                  <input matInput placeholder="Phone" value="{{profileData?.phoneNumber}}">
-                </mat-form-field>
-              </div>
-              <div class="col-sm-12">
-                <mat-form-field class="full-width-mat">
-                  <input matInput placeholder="Address" value="{{profileData?.address}}">
-                </mat-form-field>
-              </div>
-              <div class="col-sm-12">
-                <mat-form-field class="full-width-mat">
-                  <input matInput placeholder="Location" value="{{profileData?.location}}">
-                </mat-form-field>
-              </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="upldimgcrle">
+
+                            <img src="{{uploadedImage}}">
+                            <i class="fa fa-edit uplimgedit">
+                                <input class="imgupinpt" type="file"/>
+                            </i>
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <mat-form-field class="full-width-mat">
+                                    <input matInput placeholder="First Name" value="{{profileData?.name}}">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <mat-form-field class="full-width-mat">
+                                    <input matInput placeholder="Last Name" value="{{profileData?.name}}">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <mat-form-field class="full-width-mat">
+                                    <input matInput placeholder="Email" value="{{profileData?.email}}">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-6">
+                                <mat-form-field class="full-width-mat">
+                                    <input matInput placeholder="Phone" value="{{profileData?.phoneNumber}}">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12">
+                                <mat-form-field class="full-width-mat">
+                                    <input matInput placeholder="Address" value="{{profileData?.address}}">
+                                </mat-form-field>
+                            </div>
+                            <div class="col-sm-12">
+                                <mat-form-field class="full-width-mat">
+                                    <input matInput placeholder="Location" value="{{profileData?.location}}">
+                                </mat-form-field>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="clearfix"></div>
+                <div class="float-right text-right">
+                    <input type="button" value="Save" class="btn btn-primary mr-2">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
 
             </div>
-          </div>
 
-
+            <!-- Modal footer -->
 
         </div>
-        <div class="clearfix"></div>
-        <div class="float-right text-right">
-          <input type="button" value="Save" class="btn btn-primary mr-2">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-        </div>
-
-      </div>
-
-      <!-- Modal footer -->
-
     </div>
-  </div>
 </div>

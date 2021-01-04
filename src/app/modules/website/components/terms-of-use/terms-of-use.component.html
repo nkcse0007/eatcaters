@@ -1,1 +1,13 @@
-<div class="inner-pages-content">    <section class="terms-section">            <div class="container">        <div class="section-heading-part">           <h2 *ngIf="language=='en'">Terms of use</h2>          <h2 *ngIf="language=='ar'">شروط الاستخدام</h2>          <p *ngIf="language=='en'">Please read with understanding before using our services</p>          <p *ngIf="language=='ar'">يرجى القراءة بفهم قبل استخدام خدماتنا</p>        </div>          <div class="clearfix"></div>        <div class="terms-content" >        <p *ngIf="language=='en'"  [innerHtml]="termsContent"> </p>          <p *ngIf="language=='ar'" [innerHtml]="termsArbicContent"> </p>            </div>      </div>    </section>  </div>"
+<div class="inner-pages-content">
+    <section class="terms-section">
+        <div class="container">
+            <div class="section-heading-part"><h2 *ngIf="language=='en'">Terms of use</h2>
+                <h2 *ngIf="language=='ar'">شروط الاستخدام</h2>
+                <p *ngIf="language=='en'">Please read with understanding before using our services</p>
+                <p *ngIf="language=='ar'">يرجى القراءة بفهم قبل استخدام خدماتنا</p></div>
+            <div class="clearfix"></div>
+            <div class="terms-content"><p *ngIf="language=='en'" [innerHtml]="termsContent"></p>
+                <p *ngIf="language=='ar'" [innerHtml]="termsArbicContent"></p></div>
+        </div>
+    </section>
+</div>"

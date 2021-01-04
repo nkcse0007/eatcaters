@@ -2,22 +2,34 @@
 .login-part {
     padding: 30px;
     max-width: 400px;
-    margin: auto ;background:#fff; border-radius: 5px;;
+    margin: auto;
+    background: #fff;
+    border-radius: 5px;;
 }
-.login-page { 
-   padding-top:10%;
+
+.login-page {
+    padding-top: 10%;
     height: 100vh;
-    width: 100%; 
-    background: -webkit-gradient(linear, left top, left bottom, from(#8BC34A),to(#b5b5b5)) !important;
-    background: linear-gradient(to bottom, #8BC34A 0%,#b5b5b5 100%) !important;
+    width: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(#8BC34A), to(#b5b5b5)) !important;
+    background: linear-gradient(to bottom, #8BC34A 0%, #b5b5b5 100%) !important;
 }
-.logo-part-login{text-align: center;}
+
+.logo-part-login {
+    text-align: center;
+}
+
 .logo-part-login img {
     max-width: 80px;
     margin-bottom: 20px;
 }
+
 .logo-part-login h3 {
     font-weight: 600;
     font-size: 25px;
 }
-.forgot-link{color:#8BC34A;margin-top:6px;}
+
+.forgot-link {
+    color: #8BC34A;
+    margin-top: 6px;
+}

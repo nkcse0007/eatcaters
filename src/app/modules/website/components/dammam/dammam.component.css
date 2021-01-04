@@ -1,27 +1,89 @@
-.damman-section{padding:40px 0px;}
-.dist-list{padding:0px; display:flex;    flex-wrap: wrap;background:#fbfbfb;padding:20px}
-.dist-list li{list-style: none;padding:10px;width:25%;}
-.dist-list li a{border:1px solid #eee; transition:0.5s;   box-shadow: 0px 1px 5px #ddd; border-radius:4px; padding:15px;display: block;color:#333;background:#fff;}
-.dist-list li a:hover{transform: scale(1.04);}
-.dist-list li a .fas{float:right;margin-top:3px;;}
+.damman-section {
+    padding: 40px 0px;
+}
+
+.dist-list {
+    padding: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    background: #fbfbfb;
+    padding: 20px
+}
+
+.dist-list li {
+    list-style: none;
+    padding: 10px;
+    width: 25%;
+}
+
+.dist-list li a {
+    border: 1px solid #eee;
+    transition: 0.5s;
+    box-shadow: 0px 1px 5px #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    display: block;
+    color: #333;
+    background: #fff;
+}
+
+.dist-list li a:hover {
+    transform: scale(1.04);
+}
+
+.dist-list li a .fas {
+    float: right;
+    margin-top: 3px;;
+}
+
 /**policy page*/
-.policy-section{padding:40px 0px 60px;}
-.policy-content h3{font-weight: 600;margin-bottom: 20px;font-size:25px;margin-top:20px;;}
-.policy-content h4{font-weight: 600;margin-bottom:15px;font-size:18px;;}
-.policy-content p{line-height: 30px; color:#777;}
-@media screen and (max-width:992px){
-    .dist-list li{width:33%;}
+.policy-section {
+    padding: 40px 0px 60px;
 }
-@media screen and (max-width:767px){
-    .dist-list li{width:50%;}
+
+.policy-content h3 {
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 25px;
+    margin-top: 20px;;
 }
-@media screen and (max-width:450px){
-    .dist-list li{width:100%;}
+
+.policy-content h4 {
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 18px;;
+}
+
+.policy-content p {
+    line-height: 30px;
+    color: #777;
+}
+
+@media screen and (max-width: 992px) {
+    .dist-list li {
+        width: 33%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .dist-list li {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .dist-list li {
+        width: 100%;
+    }
+
     .section-heading-part h2 {
         font-weight: 700;
         font-size: 21px;
     }
-    .damman-section{padding:10px 10px 0px;}
+
+    .damman-section {
+        padding: 10px 10px 0px;
+    }
 }
 
 

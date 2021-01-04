@@ -1,1 +1,67 @@
-<footer class="footer-section">    <div class="top-footer">        <div class="container" *ngIf="language=='en'">            <div class="row">                <div class="col-sm-4 footer-part">                    <h5>DietCater</h5>                    <ul class="footer-page-list">                         <li><a routerLink="/about-us">About Us</a></li>                         <li><a routerLink="/careers">Careers</a></li>                         <li><a routerLink="/driver-registration">Become a rider</a></li>                         <!-- <li><a href="#">Add your business</a></li> -->                    </ul>                </div>                <div class="col-sm-4 footer-part">                    <h5>Our regions</h5>                    <ul class="footer-page-list">                         <li  *ngFor="let region of regions"><a routerLink="/dammam">{{region?.name}}</a></li>                                            </ul>                     </div>                              <div class="col-sm-4 footer-part">                    <h5>Help</h5>                    <ul class="footer-page-list">                         <li><a routerLink="/faqs">FAQs</a></li>                         <li><a routerLink="/terms-of-use">Terms of use</a></li>                         <li><a routerLink="/privacy-policy">Privacy Policy</a></li>                         <li><a routerLink="/contact-us">Contact us</a></li>                    </ul>                                </div>            </div>        </div>        <div class="container" *ngIf="language=='ar'">            <div class="row">                <div class="col-sm-4 footer-part">                    <h5>DietCater</h5>                    <ul class="footer-page-list">                         <li><a routerLink="/about-us">معلومات عنا</a></li>                         <li><a routerLink="/careers">وظائف </a></li>                         <li><a routerLink="/driver-registration">كن راكبًا</a></li>                         <!-- <li><a href="javascript:;">أضف عملك</a></li> -->                    </ul>                </div>                <div class="col-sm-4 footer-part">                    <h5>مناطقنا</h5>                    <ul class="footer-page-list">                          <li  *ngFor="let region of regions | slice:0:2; let ind=index;"><a routerLink="/dammam">{{region?.nameArabic}}</a></li>                    </ul>                     </div>                              <div class="col-sm-4 footer-part">                    <h5>مساعدة</h5>                    <ul class="footer-page-list">                         <li><a routerLink="/faqs">أسئلة وأجوبة</a></li>                         <li><a routerLink="/terms-of-use">شروط الاستخدام</a></li>                         <li><a routerLink="/privacy-policy">سياسة خاصة</a></li>                         <li><a routerLink="/contact-us">اتصل بنا</a></li>                    </ul>                                </div>            </div>        </div>    </div>    <div class="bottom-footer">        <div class="container">            <div class="row">                <div class="col-sm-6 copyrightcontent">                    <p>© 2020 DietCater LTD.  </p>                </div>                <div class="col-sm-6 socialmedia-part">                     <ul class="social-media-list">                         <li><a href="#"> <img src="assets/images/fb.svg" alt=""></a></li>                          <li><a href="#"> <img src="assets/images/twitter.svg" alt=""></a></li>                          <li><a href="#"> <img src="assets/images/instagram.svg" alt=""></a></li>                      </ul>                </div>            </div>        </div>    </div>    </footer>        "
+<footer class="footer-section">
+    <div class="top-footer">
+        <div class="container" *ngIf="language=='en'">
+            <div class="row">
+                <div class="col-sm-4 footer-part"><h5>DietCater</h5>
+                    <ul class="footer-page-list">
+                        <li><a routerLink="/about-us">About Us</a></li>
+                        <li><a routerLink="/careers">Careers</a></li>
+                        <li><a routerLink="/driver-registration">Become a rider</a></li>
+                        <!-- <li><a href="#">Add your business</a></li> -->                    </ul>
+                </div>
+                <div class="col-sm-4 footer-part"><h5>Our regions</h5>
+                    <ul class="footer-page-list">
+                        <li *ngFor="let region of regions"><a routerLink="/dammam">{{region?.name}}</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 footer-part"><h5>Help</h5>
+                    <ul class="footer-page-list">
+                        <li><a routerLink="/faqs">FAQs</a></li>
+                        <li><a routerLink="/terms-of-use">Terms of use</a></li>
+                        <li><a routerLink="/privacy-policy">Privacy Policy</a></li>
+                        <li><a routerLink="/contact-us">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container" *ngIf="language=='ar'">
+            <div class="row">
+                <div class="col-sm-4 footer-part"><h5>DietCater</h5>
+                    <ul class="footer-page-list">
+                        <li><a routerLink="/about-us">معلومات عنا</a></li>
+                        <li><a routerLink="/careers">وظائف </a></li>
+                        <li><a routerLink="/driver-registration">كن راكبًا</a></li>
+                        <!-- <li><a href="javascript:;">أضف عملك</a></li> -->                    </ul>
+                </div>
+                <div class="col-sm-4 footer-part"><h5>مناطقنا</h5>
+                    <ul class="footer-page-list">
+                        <li *ngFor="let region of regions | slice:0:2; let ind=index;"><a
+                                routerLink="/dammam">{{region?.nameArabic}}</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 footer-part"><h5>مساعدة</h5>
+                    <ul class="footer-page-list">
+                        <li><a routerLink="/faqs">أسئلة وأجوبة</a></li>
+                        <li><a routerLink="/terms-of-use">شروط الاستخدام</a></li>
+                        <li><a routerLink="/privacy-policy">سياسة خاصة</a></li>
+                        <li><a routerLink="/contact-us">اتصل بنا</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 copyrightcontent"><p>© 2020 DietCater LTD. </p></div>
+                <div class="col-sm-6 socialmedia-part">
+                    <ul class="social-media-list">
+                        <li><a href="#"> <img src="assets/images/fb.svg" alt=""></a></li>
+                        <li><a href="#"> <img src="assets/images/twitter.svg" alt=""></a></li>
+                        <li><a href="#"> <img src="assets/images/instagram.svg" alt=""></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>        "

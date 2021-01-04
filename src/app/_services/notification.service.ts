@@ -1,19 +1,20 @@
-import { environment } from './../../environments/environment.prod';
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {environment} from './../../environments/environment.prod';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class NotificationService {
 
-  NOTIFICATION = 'notification/';
+    NOTIFICATION = 'notification/';
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) {
+    }
 
-  getNotification(search) {
-    // tslint:disable-next-line: max-line-length
-    return this.http.get<any>(`${environment.BASE_URL}${this.NOTIFICATION}pushNotification?&pagination=${search.pagination}`);
-  }
+    getNotification(search) {
+        // tslint:disable-next-line: max-line-length
+        return this.http.get<any>(`${environment.BASE_URL}${this.NOTIFICATION}pushNotification?&pagination=${search.pagination}`);
+    }
 
 }

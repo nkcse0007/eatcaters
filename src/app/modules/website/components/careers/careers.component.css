@@ -1,39 +1,93 @@
 /**career page*/
-.inner-pages-content{padding-top:0px;}
-.career-section{padding:0px 0px 60px;background: #fff;}
-.career-content{padding:15px;border:1px solid #eee;border-left: 3px solid #7fd82a;margin:10px 0px;
-    border-radius: 3px;background: #fff;box-shadow:1px 2px 8px #f5f5f5;min-height:115px;}
-.career-content h4{font-size:15px; font-weight:500;color:#7fd82a;}
-.career-content p{color:#999;font-size:13px;margin-bottom: 0px;}
-.custom-padding{padding:0px 8px;}
+.inner-pages-content {
+    padding-top: 0px;
+}
+
+.career-section {
+    padding: 0px 0px 60px;
+    background: #fff;
+}
+
+.career-content {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-left: 3px solid #7fd82a;
+    margin: 10px 0px;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 1px 2px 8px #f5f5f5;
+    min-height: 115px;
+}
+
+.career-content h4 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #7fd82a;
+}
+
+.career-content p {
+    color: #999;
+    font-size: 13px;
+    margin-bottom: 0px;
+}
+
+.custom-padding {
+    padding: 0px 8px;
+}
+
 .location-content {
     margin-right: 3px;
 }
-.custom-margin{margin:0px -8px;}
+
+.custom-margin {
+    margin: 0px -8px;
+}
+
 .career-content p .fas {
     margin-right: 7px;
     font-size: 12px;
 }
-.tab-content-section {max-width: 1200px;margin:auto;
+
+.tab-content-section {
+    max-width: 1200px;
+    margin: auto;
     padding: 0px 0px;
     /* background: #fbfbfb; */
 }
-.nav-tabs { 
-    background: #fff;margin-bottom: 10px;;
+
+.nav-tabs {
+    background: #fff;
+    margin-bottom: 10px;;
 }
-.nav-tabs .nav-link{font-weight:500;border:none;border-bottom:2px solid transparent!important;padding:10px 27px;color:#333;}
+
+.nav-tabs .nav-link {
+    font-weight: 500;
+    border: none;
+    border-bottom: 2px solid transparent !important;
+    padding: 10px 27px;
+    color: #333;
+}
+
 .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .nav-tabs .nav-link:hover {
     color: #7fd82a;
     background-color: #fff;
-   border:none;border-bottom:2px solid #7fd82a!important;
+    border: none;
+    border-bottom: 2px solid #7fd82a !important;
 }
-@media screen and (max-width:1024px){
-    .nav-tabs .nav-link{padding:10px 15px;}
+
+@media screen and (max-width: 1024px) {
+    .nav-tabs .nav-link {
+        padding: 10px 15px;
+    }
 }
-@media screen and (max-width:992px){
-    .nav-tabs .nav-link{padding:10px 10px;}
+
+@media screen and (max-width: 992px) {
+    .nav-tabs .nav-link {
+        padding: 10px 10px;
+    }
 }
-@media screen and (max-width:450px){
+
+@media screen and (max-width: 450px) {
     .nav-tabs .nav-link {
         padding: 6px 11px;
         font-weight: 500;

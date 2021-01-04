@@ -1,42 +1,93 @@
-.about-us-content-section{padding-top:60px;margin-bottom:80px;}
-.about-content-side h2{font-weight: 700; margin-bottom: 20px;;}
-.why-choose-section{padding:80px 0px;background:#fbfbfb;}
-.why-choose-section h2{font-weight: 700;margin-bottom: 20px;;}
-.choose-part{border-radius: 6px;;text-align: center;padding:40px 30px 30px;background:#fff;min-height:340px;margin:20px 0px;box-shadow: 0px 1px 11px #ddd;} 
+.about-us-content-section {
+    padding-top: 60px;
+    margin-bottom: 80px;
+}
+
+.about-content-side h2 {
+    font-weight: 700;
+    margin-bottom: 20px;;
+}
+
+.why-choose-section {
+    padding: 80px 0px;
+    background: #fbfbfb;
+}
+
+.why-choose-section h2 {
+    font-weight: 700;
+    margin-bottom: 20px;;
+}
+
+.choose-part {
+    border-radius: 6px;;
+    text-align: center;
+    padding: 40px 30px 30px;
+    background: #fff;
+    min-height: 340px;
+    margin: 20px 0px;
+    box-shadow: 0px 1px 11px #ddd;
+}
+
 .choose-part h4 {
     font-weight: 600;
-    font-size: 22px;margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 10px;
 }
+
 .choose-part p {
     font-size: 15px;
-    line-height: 24px;color:#999;
+    line-height: 24px;
+    color: #999;
 }
+
 .choose-icon-part {
     background: #8cc357;;
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    font-size: 50px;color: #fff;
+    font-size: 50px;
+    color: #fff;
     padding: 10px;
     margin: 0px auto 25px;
 }
+
 .about-content-side p {
     color: #777;
     line-height: 27px;
 }
-@media screen and (max-width:900px){
-    .choose-icon-part{width: 80px;
-        height: 80px; 
-        font-size: 40px;}
-        .choose-part h4{font-size:21px;}
-        .choose-part{    min-height: 370px;}
+
+@media screen and (max-width: 900px) {
+    .choose-icon-part {
+        width: 80px;
+        height: 80px;
+        font-size: 40px;
+    }
+
+    .choose-part h4 {
+        font-size: 21px;
+    }
+
+    .choose-part {
+        min-height: 370px;
+    }
 }
 
-@media screen and (max-width:767px){
-    .about-us-content-section{padding-top:30px;}
-    .choose-part{max-width: 500px;margin:20px auto;min-height:100px;}
-    .section-heading-part h2 { 
+@media screen and (max-width: 767px) {
+    .about-us-content-section {
+        padding-top: 30px;
+    }
+
+    .choose-part {
+        max-width: 500px;
+        margin: 20px auto;
+        min-height: 100px;
+    }
+
+    .section-heading-part h2 {
         font-size: 27px;
     }
-    .why-choose-section{padding:40px 0px}
+
+    .why-choose-section {
+        padding: 40px 0px
+    }
 }

@@ -1,19 +1,20 @@
 <app-admin-header></app-admin-header>
 <section class="main-and-sidebar-section ">
-  <div class="sidebar-area">
-    <app-admin-sidebar></app-admin-sidebar>
-  </div>
-  <div class="content-area">
-    <h1 class="page-title">Privacy Policy</h1>
-    <!-- <mat-form-field class="full-width-mat">
-      <input matInput placeholder="Title">
-    </mat-form-field> -->
-    <label>Description</label>
-    <app-ngx-editor [placeholder]="'Enter text here...'" [config]="editorConfig" [spellcheck]="true"></app-ngx-editor>
-    <div class="text-right">
-      <input type="button" class="btn btn-primary mt-3" value="Save">
+    <div class="sidebar-area">
+        <app-admin-sidebar></app-admin-sidebar>
     </div>
-  </div>
+    <div class="content-area">
+        <h1 class="page-title">Privacy Policy</h1>
+        <!-- <mat-form-field class="full-width-mat">
+          <input matInput placeholder="Title">
+        </mat-form-field> -->
+        <label>Description</label>
+        <app-ngx-editor [ngModel]="content" [placeholder]="'Enter text here...'" [config]="editorConfig"
+                        [spellcheck]="true"></app-ngx-editor>
+        <div class="text-right">
+            <input type="button" class="btn btn-primary mt-3" value="Save">
+        </div>
+    </div>
 
 </section>
 <app-admin-footer></app-admin-footer>

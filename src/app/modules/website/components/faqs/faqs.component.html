@@ -12,7 +12,7 @@
                             <p *ngIf="language=='ar'">هنا يمكنك العثور على الأسئلة الأكثر شيوعًا ، خدمة العملاء لتقليل
                                 الوقت للإجابة على الاستفسارات مثل سياسة الحجز وحالة الطلب. </p>
                         </div>
-                        <div class="col-sm-5 inerpage-bnr-image"> <img src="assets/images/home-food.png" alt=""> </div>
+                        <div class="col-sm-5 inerpage-bnr-image"><img src="assets/images/home-food.png" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -21,14 +21,14 @@
             <div class="clearfix"></div>
             <div class="faqcontentpart">
                 <ul class="nav nav-tabs faqtabs justify-content-center">
-                    <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#general"> <span
-                                *ngIf="language=='en'">General</span> <span *ngIf="language=='ar'">جنرال لواء</span>
-                        </a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#orderrelated"> <span
-                                *ngIf="language=='en'">Oreder Related</span> <span *ngIf="language=='ar'">ترتيب ذات
-                                الصلة</span> </a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#technical"> <span
-                                *ngIf="language=='en'">Technical</span> <span *ngIf="language=='ar'">فني</span> </a>
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#general"> <span
+                            *ngIf="language=='en'">General</span> <span *ngIf="language=='ar'">جنرال لواء</span>
+                    </a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#orderrelated"> <span
+                            *ngIf="language=='en'">Oreder Related</span> <span *ngIf="language=='ar'">ترتيب ذات
+                                الصلة</span> </a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#technical"> <span
+                            *ngIf="language=='en'">Technical</span> <span *ngIf="language=='ar'">فني</span> </a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -39,14 +39,16 @@
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-default" *ngFor="let faqlist of generalFaq">
                                     <div class="panel-heading active" role="tab" id="headingOne">
-                                        <h4 class="panel-title"> <a role="button" data-toggle="collapse"
-                                                data-parent="#accordion" href="#collapse{{faqlist._id}}"
-                                                aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-                                                <span *ngIf="language=='en'">{{faqlist.question}}</span> <span
-                                                    *ngIf="language=='ar'">{{faqlist.questionArabic}}</span> </a> </h4>
+                                        <h4 class="panel-title"><a role="button" data-toggle="collapse"
+                                                                   data-parent="#accordion"
+                                                                   href="#collapse{{faqlist._id}}"
+                                                                   aria-expanded="true" aria-controls="collapseOne"
+                                                                   class="collapsed">
+                                            <span *ngIf="language=='en'">{{faqlist.question}}</span> <span
+                                                *ngIf="language=='ar'">{{faqlist.questionArabic}}</span> </a></h4>
                                     </div>
                                     <div id="collapse{{faqlist._id}}" class="panel-collapse collapse in" role="tabpanel"
-                                        aria-labelledby="headingOne">
+                                         aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <p *ngIf="language=='en'">{{faqlist.answer}}</p>
                                             <p *ngIf="language=='ar'">{{faqlist.answerArabic}}</p>
@@ -63,14 +65,16 @@
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-default" *ngFor="let faqlist of orderFaq ">
                                     <div class="panel-heading active" role="tab" id="headingOne">
-                                        <h4 class="panel-title"> <a role="button" data-toggle="collapse"
-                                                data-parent="#accordion" href="#collapse{{faqlist._id}}"
-                                                aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-                                                <span *ngIf="language=='en'">{{faqlist.question}}</span> <span
-                                                    *ngIf="language=='ar'">{{faqlist.questionArabic}}</span> </a> </h4>
+                                        <h4 class="panel-title"><a role="button" data-toggle="collapse"
+                                                                   data-parent="#accordion"
+                                                                   href="#collapse{{faqlist._id}}"
+                                                                   aria-expanded="true" aria-controls="collapseOne"
+                                                                   class="collapsed">
+                                            <span *ngIf="language=='en'">{{faqlist.question}}</span> <span
+                                                *ngIf="language=='ar'">{{faqlist.questionArabic}}</span> </a></h4>
                                     </div>
                                     <div id="collapse{{faqlist._id}}" class="panel-collapse collapse in" role="tabpanel"
-                                        aria-labelledby="headingOne">
+                                         aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <p *ngIf="language=='en'">{{faqlist.answer}}</p>
                                             <p *ngIf="language=='ar'">{{faqlist.answerArabic}}</p>
@@ -87,14 +91,16 @@
                             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                 <div class="panel panel-default" *ngFor="let faqlist of technicalFaq">
                                     <div class="panel-heading active" role="tab" id="headingOne">
-                                        <h4 class="panel-title"> <a role="button" data-toggle="collapse"
-                                                data-parent="#accordion" href="#collapse{{faqlist._id}}"
-                                                aria-expanded="true" aria-controls="collapseOne" class="collapsed">
-                                                <span *ngIf="language=='en'">{{faqlist.question}}</span> <span
-                                                    *ngIf="language=='ar'">{{faqlist.questionArabic}}</span> </a> </h4>
+                                        <h4 class="panel-title"><a role="button" data-toggle="collapse"
+                                                                   data-parent="#accordion"
+                                                                   href="#collapse{{faqlist._id}}"
+                                                                   aria-expanded="true" aria-controls="collapseOne"
+                                                                   class="collapsed">
+                                            <span *ngIf="language=='en'">{{faqlist.question}}</span> <span
+                                                *ngIf="language=='ar'">{{faqlist.questionArabic}}</span> </a></h4>
                                     </div>
                                     <div id="collapse{{faqlist._id}}" class="panel-collapse collapse in" role="tabpanel"
-                                        aria-labelledby="headingOne">
+                                         aria-labelledby="headingOne">
                                         <div class="panel-body">
                                             <p *ngIf="language=='en'">{{faqlist.answer}}</p>
                                             <p *ngIf="language=='ar'">{{faqlist.answerArabic}}</p>

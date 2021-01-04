@@ -1,7 +1,6 @@
 <!-- <section class="banner-section"> -->
 
 
-
 <!-- <img class="banner-img" src="assets/images/banner.jpg" alt="">
     <div class="banner-absolute-part wow fadeInUp ">
         <h2>+10000 restaurants</h2>
@@ -13,9 +12,6 @@
             </div>
           </div>
          </div> -->
-
-
-
 
 
 <!-- <div class="container">
@@ -144,12 +140,12 @@
             <div class="col-sm-6 banner-part-1">
                 <div class="banner-absolute-part wow bounceInLeft " data-wow-duration="1.5s" data-wow-delay=".1s">
                     <h2>DietCater </h2>
-                    <h4 *ngIf="language=='en'" [innerHtml]="bannerTitle?.title"> </h4>
-                    <h4 *ngIf="language=='ar'" [innerHtml]="bannerTitle?.titleArabic"> </h4>
+                    <h4 *ngIf="language=='en'" [innerHtml]="bannerTitle?.title"></h4>
+                    <h4 *ngIf="language=='ar'" [innerHtml]="bannerTitle?.titleArabic"></h4>
                     <!-- <div class="input-group mb-1 banersearch">                           <input type="text" class="form-control" placeholder="Search restaurant" aria-label="Recipient's username" aria-describedby="basic-addon2">                           <div class="input-group-append">                             <buon type="buon" class="input-group-text" id="basic-addon2"><i class="fa fa-search"></i></buon>                           </div>                         </div> -->
                 </div>
             </div>
-            <div class="col-sm-6"> <img src="assets/images/bnr-img.png" alt=""> </div>
+            <div class="col-sm-6"><img src="assets/images/bnr-img.png" alt=""></div>
         </div>
     </div>
 </section>
@@ -160,7 +156,7 @@
         <div class="various-cuisines-slider">
             <ngx-slick-carousel class="carousel" #slickModal="slick-carousel" [config]="slideConfig">
                 <div ngxSlickItem *ngFor="let category of categoryListing" class="various-slider-itempart"
-                    (click)="getItems(category)"> <img
+                     (click)="getItems(category)"><img
                         src="{{ category?.image?category?.image:'assets/images/imageone.jpg' }}" alt="">
                     <h5 *ngIf="language=='en'">{{category?.name}}</h5>
                     <h5 *ngIf="language=='ar'">{{category?.nameArabic}}</h5>
@@ -168,12 +164,13 @@
             </ngx-slick-carousel>
             <ul class="items-listing">
                 <li class="itemheadingline"><strong><span *ngIf="language=='en'">{{catName}}</span> <span
-                            *ngIf="language=='ar'">{{catArabicName}}</span> Items</strong> <i class="closeicon"
-                        (click)="hideitem()">x</i></li>
+                        *ngIf="language=='ar'">{{catArabicName}}</span> Items</strong> <i class="closeicon"
+                                                                                          (click)="hideitem()">x</i>
+                </li>
                 <li *ngFor="let catItems of singleCategoryItem"> <span class="itemimage"><img
-                            [src]="catItems?.image?catItems?.image:'assets/images/imageone.jpg'" alt=""></span> <span
+                        [src]="catItems?.image?catItems?.image:'assets/images/imageone.jpg'" alt=""></span> <span
                         *ngIf="language=='en'"> {{catItems?.name}}</span> <span *ngIf="language=='ar'">
-                        {{catItems?.nameArabic}}</span> </li>
+                        {{catItems?.nameArabic}}</span></li>
             </ul>
         </div>
     </div>
@@ -183,7 +180,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-6 col-sm-6 mobile-app-content-part wow slideInLeft" data-wow-duration="1.5s"
-                    data-wow-delay=".5s">
+                     data-wow-delay=".5s">
                     <div *ngIf="language=='en'">
                         <h2>Get the mobile App</h2>
                         <p>Download DietCater on your mobile device for a more convenient and efficient ordering and
@@ -193,15 +190,15 @@
                         <h2>احصل على تطبيق الجوال</h2>
                         <p>قم بتنزيل DietCater على جهازك المحمول للحصول على عملية طلب وتسليم أكثر ملاءمة وكفاءة.</p>
                     </div>
-                    <div class="app-linkpart" *ngIf="language=='en'"> <a href="#" class="appstore-link"><i
-                                class="fab fa-apple"></i> App Store</a> <a href="#" class="google-playlink"> <i
-                                class="fab fa-google-play"></i>Goggle Play</a> </div>
-                    <div class="app-linkpart" *ngIf="language=='ar'"> <a href="#" class="appstore-link"><i
-                                class="fab fa-apple"></i> متجر التطبيقات</a> <a href="#" class="google-playlink"> <i
-                                class="fab fa-google-play"></i>تطبيقات جوجل </a> </div>
+                    <div class="app-linkpart" *ngIf="language=='en'"><a href="#" class="appstore-link"><i
+                            class="fab fa-apple"></i> App Store</a> <a href="#" class="google-playlink"> <i
+                            class="fab fa-google-play"></i>Goggle Play</a></div>
+                    <div class="app-linkpart" *ngIf="language=='ar'"><a href="#" class="appstore-link"><i
+                            class="fab fa-apple"></i> متجر التطبيقات</a> <a href="#" class="google-playlink"> <i
+                            class="fab fa-google-play"></i>تطبيقات جوجل </a></div>
                 </div>
                 <div class="col-lg-7 col-sm-6 mobileapp-image-part wow slideInRight" data-wow-duration="1.5s"
-                    data-wow-delay=".5s"><img src="assets/images/mobile-app.png" alt=""></div>
+                     data-wow-delay=".5s"><img src="assets/images/mobile-app.png" alt=""></div>
             </div>
         </div>
     </div>
@@ -212,18 +209,18 @@
             <div class="col-sm-6">
                 <div class="partner-part">
                     <div class="partner-content-part" *ngIf="language=='en'">
-                        <h3> <i class="fa fa-briefcase"></i> <span class="partner-txt">Partner with Market
+                        <h3><i class="fa fa-briefcase"></i> <span class="partner-txt">Partner with Market
                                 Leaders</span></h3>
                         <p>We are partners with more than 65% of restaurants in Saudi Arabia and Bahrain. Grow your
                             business and Deliver to new customers with Diet Cater, our logistics got you covered!</p>
-                        <div class="text-center"> <a href="#">Add Your Business <i
-                                    class="fa fa-arrow-alt-circle-right"></i></a> </div>
+                        <div class="text-center"><a href="#">Add Your Business <i
+                                class="fa fa-arrow-alt-circle-right"></i></a></div>
                     </div>
                     <div class="partner-content-part" *ngIf="language=='ar'">
-                        <h3> <i class="fa fa-briefcase"></i> <span class="partner-txt">شراكة مع قادة السوق</span></h3>
+                        <h3><i class="fa fa-briefcase"></i> <span class="partner-txt">شراكة مع قادة السوق</span></h3>
                         <p>نحن شركاء مع أكثر من 65٪ من المطاعم في المملكة العربية السعودية والبحرين. قم بتنمية أعمالك
                             وتسليمها لعملاء جدد مع دايت كاتر ، فنحن نقدم لك خدماتنا اللوجستية!</p>
-                        <div class="text-center"> <a href="#">أضف عملك <i class="fa fa-arrow-alt-circle-right"></i></a>
+                        <div class="text-center"><a href="#">أضف عملك <i class="fa fa-arrow-alt-circle-right"></i></a>
                         </div>
                     </div>
                 </div>
@@ -232,16 +229,16 @@
                 <div class="partner-part">
                     <!-- <div class="partnericon-part"><i class="fa fa-car"></i>                </div> -->
                     <div class="partner-content-part" *ngIf="language=='en'">
-                        <h3> <i class="fa fa-car"></i> <span class="partner-txt">Become a Rider</span></h3>
+                        <h3><i class="fa fa-car"></i> <span class="partner-txt">Become a Rider</span></h3>
                         <p>Join us a rider and increase your income, register now !</p>
-                        <div class="text-center"> <a href="#">Apply as a Rider <i
-                                    class="fa fa-arrow-alt-circle-right"></i></a> </div>
+                        <div class="text-center"><a href="#">Apply as a Rider <i
+                                class="fa fa-arrow-alt-circle-right"></i></a></div>
                     </div>
                     <div class="partner-content-part" *ngIf="language=='ar'">
-                        <h3> <i class="fa fa-car"></i> <span class="partner-txt">كن راكبًا</span></h3>
+                        <h3><i class="fa fa-car"></i> <span class="partner-txt">كن راكبًا</span></h3>
                         <p>انضم إلينا راكبًا وزد دخلك ، سجل الآن!</p>
-                        <div class="text-center"> <a href="#">تقدم كراكب <i
-                                    class="fa fa-arrow-alt-circle-right"></i></a> </div>
+                        <div class="text-center"><a href="#">تقدم كراكب <i
+                                class="fa fa-arrow-alt-circle-right"></i></a></div>
                     </div>
                 </div>
             </div>
@@ -262,9 +259,11 @@
                 </div>
                 <div class="col-lg-4 col-sm-6 ml-auto download-image-part">
                     <!-- <img src="assets/images/mobile.png" alt=""> -->
-                    <div class="app-linkpart"> <a href="#" class="appstore-link"><img src="assets/images/app-store.svg"
-                                alt=""></a> <a href="#" class="google-playlink"><img src="assets/images/googleplay.png"
-                                alt=""></a> </div>
+                    <div class="app-linkpart"><a href="#" class="appstore-link"><img src="assets/images/app-store.svg"
+                                                                                     alt=""></a> <a href="#"
+                                                                                                    class="google-playlink"><img
+                            src="assets/images/googleplay.png"
+                            alt=""></a></div>
                 </div>
             </div>
         </div>

@@ -48,6 +48,8 @@ export class ItemsComponent implements OnInit {
     saucesData: any = [];
     side1Data: any = [];
     side2Data: any = [];
+    categoryData: any = [];
+    selectedCategory: any = {};
 
     dataSource = new MatTableDataSource<any>(ELEMENT_DATA);
     selection = new SelectionModel<any>(true, []);
@@ -84,6 +86,7 @@ export class ItemsComponent implements OnInit {
     }
 
     ngOnInit() {
+        this.getItems();
         this.getCategories();
         this.getSauces();
         this.getSide1();
@@ -103,15 +106,6 @@ export class ItemsComponent implements OnInit {
             image: [''],
         });
 
-
-        this.cities = [
-            {item_id: 1, item_text: 'New Delhi'},
-            {item_id: 2, item_text: 'Mumbai'},
-            {item_id: 3, item_text: 'Bangalore'},
-            {item_id: 4, item_text: 'Pune'},
-            {item_id: 5, item_text: 'Chennai'},
-            {item_id: 6, item_text: 'Navsari'}
-        ];
         this.selectedSauces = [];
         this.selectedSide1 = [];
         this.selectedSide2 = [];
@@ -125,6 +119,7 @@ export class ItemsComponent implements OnInit {
             itemsShowLimit: 3,
             allowSearchFilter: this.ShowFilter
         };
+
         this.mySauces = this.fb.group({
             sauces: [this.selectedSauces]
         });
@@ -139,11 +134,14 @@ export class ItemsComponent implements OnInit {
         });
     }
 
+    changeCat(event) {
+        this.selectedCategory = this.categoryData[event.currentTarget.selectedIndex];
+    }
+
 
     getAdditional() {
         this.loader = true;
         this.contentService.getextra({type: '4'}).subscribe(res => {
-            this.dataSource.data = res['data'];
             console.log('cat res', res['data']);
             this.loader = false;
             this.additionalData = res['data'];
@@ -151,10 +149,17 @@ export class ItemsComponent implements OnInit {
     }
 
 
+    getItems() {
+        this.loader = true;
+        this.contentService.getItems().subscribe(res => {
+            this.dataSource.data = res['data'];
+        });
+    }
+
+
     getSauces() {
         this.loader = true;
         this.contentService.getextra({type: '1'}).subscribe(res => {
-            this.dataSource.data = res['data'];
             console.log('cat res', res['data']);
             this.loader = false;
             this.saucesData = res['data'];
@@ -165,7 +170,6 @@ export class ItemsComponent implements OnInit {
     getSide1() {
         this.loader = true;
         this.contentService.getextra({type: '2'}).subscribe(res => {
-            this.dataSource.data = res['data'];
             console.log('cat res', res['data']);
             this.loader = false;
             this.side1Data = res['data'];
@@ -176,15 +180,26 @@ export class ItemsComponent implements OnInit {
     getSide2() {
         this.loader = true;
         this.contentService.getextra({type: '3'}).subscribe(res => {
-            this.dataSource.data = res['data'];
             console.log('cat res', res['data']);
             this.loader = false;
             this.side2Data = res['data'];
         });
     }
 
-    onItemSelect(item: any) {
-        console.log('onItemSelect', item);
+    onSaucesSelect(item: any) {
+        this.selectedSauces.push(item._id);
+    }
+
+    onAdditionaldSelect(item: any) {
+        this.selectedAdditional.push(item._id);
+    }
+
+    onSide1Select(item: any) {
+        this.selectedSide1.push(item._id);
+    }
+
+    onSide2Select(item: any) {
+        this.selectedSide2.push(item._id);
     }
 
     onSelectAll(items: any) {
@@ -201,16 +216,15 @@ export class ItemsComponent implements OnInit {
             this.dropdownSettings = Object.assign({}, this.dropdownSettings, {limitSelection: 2});
         } else {
             this.dropdownSettings = Object.assign({}, this.dropdownSettings, {limitSelection: null});
-
-
         }
     }
 
-    onSubmit() {
+    createItem() {
+        debugger;
         this.submetted = true;
         const formData = new FormData();
         if (this.categoryId) {
-            formData.append('catid', this.categoryId);
+            formData.append('catid', this.selectedCategory._id);
             formData.append('name', this.categoryForm.value.name);
             formData.append('fat', this.categoryForm.value.fat);
             formData.append('nameArabic', this.categoryForm.value.nameArabic);
@@ -218,26 +232,38 @@ export class ItemsComponent implements OnInit {
             formData.append('calories', this.categoryForm.value.calories);
             formData.append('price', this.categoryForm.value.price);
             formData.append('protien', this.categoryForm.value.protien);
+            formData.append('side1', this.selectedSide1);
+            formData.append('side2', this.selectedSide2);
+            formData.append('sauces', this.selectedSauces);
+            formData.append('additional', this.selectedAdditional);
+
 
             formData.append('image', this.uploadedImage);
-            if (this.categoryForm.invalid) {
-                return;
-            }
-            if (this.categoryForm.valid) {
-                this.loader = true;
-                this.contentService.updateItem(formData).subscribe(res => {
-                    this.commonSrvc.Toast.fire(res['message'], '', 'success');
-                    $('#addcategory').modal('hide');
-                    this.loader = false;
-                    this.categoryForm.reset({});
-                    this.getCategories();
-                    this.categoryId = '';
-                    this.submetted = false;
-                    return true;
-                });
-            }
+            // if (this.categoryForm.invalid) {
+            //     return;
+            // }
+            // if (this.categoryForm.valid) {
+            this.loader = true;
+            this.contentService.updateItem(formData).subscribe(res => {
+                this.commonSrvc.Toast.fire(res['message'], '', 'success');
+                $('#addcategory').modal('hide');
+                this.loader = false;
+                this.categoryForm.reset({});
+                this.getCategories();
+                this.categoryId = '';
+
+                this.selectedSauces = [];
+                this.selectedAdditional = [];
+                this.selectedSide2 = [];
+                this.selectedSide1 = [];
+                this.selectedCategory = [];
+                this.submetted = false;
+                return true;
+            });
+            // }
         } else {
             this.loader = true;
+            formData.append('catid', this.selectedCategory._id);
             formData.append('fat', this.categoryForm.value.fat);
             formData.append('nameArabic', this.categoryForm.value.nameArabic);
             formData.append('carb', this.categoryForm.value.carb);
@@ -246,20 +272,30 @@ export class ItemsComponent implements OnInit {
             formData.append('protien', this.categoryForm.value.protien);
             formData.append('name', this.categoryForm.value.name);
             formData.append('image', this.uploadedImage);
-            if (this.categoryForm.invalid) {
-                return;
-            }
-            if (this.categoryForm.valid) {
-                this.contentService.categoryPost(formData).subscribe(res => {
-                    this.commonSrvc.Toast.fire(res['message'], '', 'success');
-                    $('#addcategory').modal('hide');
-                    this.categoryForm.reset({});
-                    this.getCategories();
-                    this.loader = false;
-                    this.submetted = false;
-                    return true;
-                });
-            }
+            formData.append('side1', this.selectedSide1);
+            formData.append('side2', this.selectedSide2);
+            formData.append('sauces', this.selectedSauces);
+            formData.append('additional', this.selectedAdditional);
+            // if (this.categoryForm.invalid) {
+            //     return;
+            // }
+            // if (this.categoryForm.valid) {
+            this.contentService.addItem(formData).subscribe(res => {
+                this.commonSrvc.Toast.fire(res['message'], '', 'success');
+                $('#addcategory').modal('hide');
+                this.categoryForm.reset({});
+                // this.getCategories();
+                this.loader = false;
+                this.submetted = false;
+
+                this.selectedSauces = [];
+                this.selectedAdditional = [];
+                this.selectedSide2 = [];
+                this.selectedSide1 = [];
+                this.selectedCategory = [];
+                return true;
+            });
+            // }
         }
 
     }
@@ -280,12 +316,18 @@ export class ItemsComponent implements OnInit {
         this.categoryForm.controls.fat.enable();
         this.categoryForm.controls.carb.enable();
         this.categoryForm.controls.calories.enable();
-        this.categoryForm.controls.categoryId.enable();
         this.categoryForm.controls.protien.enable();
 
         this.uploadedImage = elem.image;
         console.log('geted image', elem.image);
         this.imagePath = [''];
+
+        this.selectedAdditional = elem.additional;
+        this.selectedSide1 = elem.side1;
+        this.selectedSide2 = elem.side2;
+        this.selectedSauces = elem.sauces;
+        this.selectedCategory = elem.categoryId;
+
     }
 
     viewCategory(element) {
@@ -315,18 +357,19 @@ export class ItemsComponent implements OnInit {
         this.categoryForm.controls.fat.enable();
         this.categoryForm.controls.carb.enable();
         this.categoryForm.controls.calories.enable();
-        this.categoryForm.controls.categoryId.enable();
+        // this.categoryForm.controls.categoryId.enable();
         this.categoryForm.controls.protien.enable();
         this.uploadedImage = '';
     }
 
     getCategories() {
         this.loader = true;
-        this.contentService.getItems().subscribe(res => {
-            this.dataSource.data = res['data'];
+        this.contentService.getCategory().subscribe(res => {
+            this.categoryData = res['data'];
             console.log('cat res', res['data']);
             this.loader = false;
         });
+        console.log(this.categoryData);
 
     }
 
@@ -384,7 +427,6 @@ export class ItemsComponent implements OnInit {
 
 
         this.imagePath = [];
-        debugger;
         const files = this.files;
         console.log('uploaded image', event);
         if (files) {
@@ -409,7 +451,6 @@ export class ItemsComponent implements OnInit {
 
             console.log('uploaded imagesssss', this.uploadedImage);
         }
-
     }
 
     onRemove(event) {

@@ -33,6 +33,11 @@ import {AdditionalComponent} from './components/extra/additional/additional.comp
 import {AboutusComponent} from './components/aboutus/aboutus.component';
 import {NgxDropzoneModule} from 'ngx-dropzone';
 
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 
 @NgModule({
@@ -43,7 +48,8 @@ import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
         SettingComponent, AllUsersComponent, SaucesComponent, Side1Component, Side2Component, AdditionalComponent, AboutusComponent],
     imports: [
         CommonModule,
-        CommonPagesRoutingModule, SharedModule, NgxDropzoneModule, NgMultiSelectDropDownModule
+        CommonPagesRoutingModule, SharedModule, NgxDropzoneModule, NgMultiSelectDropDownModule, MatSelectModule,
+        MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule
     ]
 })
 export class CommonPagesModule {

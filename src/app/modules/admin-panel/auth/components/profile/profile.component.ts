@@ -46,6 +46,27 @@ export class ProfileComponent implements OnInit {
         });
     }
 
+    readUrl(event) {
+        const files = event.target.files;
+        if (files.length === 0) {
+            return;
+        }
+
+        const mimeType = files[0].type;
+        if (mimeType.match(/image\/*/) == null) {
+            alert('Only images are supported.');
+            return;
+        }
+
+        const reader = new FileReader();
+        this.imagePath = files;
+        reader.readAsDataURL(files[0]);
+        // tslint:disable-next-line:variable-name
+        reader.onload = (_event) => {
+            this.uploadedImage = reader.result;
+        };
+    }
+
 
     profileSubmit() {
         const formData = new FormData();

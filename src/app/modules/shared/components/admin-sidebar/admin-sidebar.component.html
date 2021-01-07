@@ -13,28 +13,38 @@
                routerLinkActiveOptions="{exact:                    true}"><i class="fas fa-utensils"></i> <span
                 class="menu-txt">Items</span></a></li>
         <li>
-            <div class="dropdown sidebarmenu-dropdown"><a id="dropdownMenuButton" data-toggle="dropdown"
-                                                          aria-haspopup="true" aria-expanded="false"> <i
-                    class="fas fa-shield-alt"></i> <span
-                    class="menu-txt">Extra</span></a>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"><a class="dropdown-item"
-                                                                                   (click)="hidemenu()"
-                                                                                   routerLink="/admin/extra/sauces"
-                                                                                   routerLinkActive="active"
-                                                                                   routerLinkActiveOptions="{exact:                                true}">Sauces</a>
-                    <a
-                            class="dropdown-item" (click)="hidemenu()" routerLink="/admin/extra/side1"
-                            routerLinkActive="active"
-                            routerLinkActiveOptions="{exact:                                true}">Side 1</a> <a
-                            class="dropdown-item" (click)="hidemenu()" routerLink="/admin/extra/side2"
-                            routerLinkActive="active"
-                            routerLinkActiveOptions="{exact:                                true}">Side 2</a> <a
-                            class="dropdown-item" (click)="hidemenu()" routerLink="/admin/extra/additional"
-                            routerLinkActive="active" routerLinkActiveOptions="{exact:true}">Additional</a>
+            <div class="dropdown sidebarmenu-dropdown" style="cursor: pointer;">
+                <a id="dropdownMenuButton" data-toggle="dropdown"
+                   (click)="extraClicked()"
+                   aria-haspopup="true" aria-expanded="false"> <i
+                        class="fas fa-shield-alt"></i> <span
+                        class="menu-txt">Extra</span></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 100%;">
+                    <a class="dropdown-item"
+                       (click)="hidemenu()"
+                       routerLink="/admin/extra/sauces"
+                       routerLinkActive="active"
+                       routerLinkActiveOptions="{exact: true}">
+                        Sauces
+                    </a>
+                    <a class="dropdown-item" (click)="hidemenu()" routerLink="/admin/extra/side1"
+                       routerLinkActive="active"
+                       routerLinkActiveOptions="{exact: true}">
+                        Side 1
+                    </a>
+                    <a class="dropdown-item" (click)="hidemenu()" routerLink="/admin/extra/side2"
+                       routerLinkActive="active"
+                       routerLinkActiveOptions="{exact: true}">
+                        Side 2
+                    </a>
+                    <a class="dropdown-item" (click)="hidemenu()" routerLink="/admin/extra/additional"
+                       routerLinkActive="active" routerLinkActiveOptions="{exact:true}">
+                        Additional
+                    </a>
                 </div>
             </div>
         </li>
-        <li><a (click)="hidemenu()" routerLink="/admin/drivers" routerLinkActive="active"
+        <li [ngClass]="{'extraExpended': extra}"><a (click)="hidemenu()" routerLink="/admin/drivers" routerLinkActive="active"
                routerLinkActiveOptions="{exact:                        true}"><i class="fas fa-user-friends"></i> <span
                 class="menu-txt">Drivers</span></a></li>
         <!-- <li><a (click)="hidemenu()" routerLink="/admin/orders" routerLinkActive="active" routerLinkActiveOptions="{exact:                            true}"><i class="fas fa-cart-arrow-down"></i> <span class="menu-txt">Orders</span></a></li>        <li><a (click)="hidemenu()" routerLink="/admin/offers" routerLinkActive="active" routerLinkActiveOptions="{exact:                                true}"><i class="fas fa-dollar-sign"></i> <span class="menu-txt">Offers</span></a></li> -->

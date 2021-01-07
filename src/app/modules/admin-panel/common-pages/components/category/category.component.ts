@@ -240,7 +240,6 @@ export class CategoryComponent implements OnInit {
 
 
         this.imagePath = [];
-        debugger;
         let files = this.files;
         console.log('uploaded image', event);
         if (files) {

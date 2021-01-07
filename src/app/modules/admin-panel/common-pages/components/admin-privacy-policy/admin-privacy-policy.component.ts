@@ -8,7 +8,20 @@ import {ContentserviceService} from '../../../../../_services/contentservice.ser
 })
 export class AdminPrivacyPolicyComponent implements OnInit {
     content: any = '';
+    contentArabic: any = '';
     editorConfig = {
+        editable: true,
+        spellcheck: false,
+        height: '17rem',
+        minHeight: '5rem',
+        // placeholder: 'Type something. Test the Editor... ',
+        translate: 'no',
+        'toolbar': [
+            ['bold', 'italic', 'underline'],
+            ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull', 'indent'],
+        ]
+    };
+    editorConfig2 = {
         editable: true,
         spellcheck: false,
         height: '17rem',
@@ -32,16 +45,22 @@ export class AdminPrivacyPolicyComponent implements OnInit {
         this.contentService.privacyPolicyGet().subscribe(res => {
             console.log(res);
             this.content = res['data'].content;
+            this.contentArabic = res['data'].contentArabic;
             // this.data.formdata[0]
         });
     }
 
 
+
     updatePrivacyPolicy() {
-        this.contentService.termsUsePost(
-            {
-                content: this.content,
-            }
+        const formData = new FormData();
+        formData.append('content', this.content);
+        formData.append('titleArabic', 'Privacy Policy');
+        formData.append('contentArabic', this.contentArabic);
+        formData.append('title', 'Privacy Policy');
+
+        this.contentService.privacyPolicyPost(
+            formData
         ).subscribe(res => {
             console.log(res);
         });

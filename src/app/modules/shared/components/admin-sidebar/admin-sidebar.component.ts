@@ -6,6 +6,7 @@ import {Component, OnInit} from '@angular/core';
     styleUrls: ['./admin-sidebar.component.css']
 })
 export class AdminSidebarComponent implements OnInit {
+    extra = false;
 
     constructor() {
     }
@@ -14,6 +15,12 @@ export class AdminSidebarComponent implements OnInit {
     }
 
     hidemenu() {
+        if (this.extra) {
+            this.extra = false;
+        }
+    }
 
+    extraClicked() {
+        this.extra = !this.extra;
     }
 }

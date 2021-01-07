@@ -16,7 +16,7 @@
                     <div class="col-sm-4">
                         <div class="usrimg-sec">
                             <div class="image-bg">
-                                <img src="{{uploadedImage}}">
+                                <img [src]="uploadedImage">
                             </div>
                             <div class="usrinfo">
                                 <strong>{{profileData?.name}}</strong>
@@ -52,8 +52,6 @@
                                 <label>Location :</label>
                                 <p>{{profileData?.location}}</p>
                             </li>
-
-
                         </ul>
                     </div>
                 </div>
@@ -80,9 +78,9 @@
                     <div class="col-sm-4">
                         <div class="upldimgcrle">
 
-                            <img src="{{uploadedImage}}">
+                            <img [src]="uploadedImage">
                             <i class="fa fa-edit uplimgedit">
-                                <input class="imgupinpt" type="file"/>
+                                <input class="imgupinpt" type="file" (change)="readUrl($event)"/>
                             </i>
                         </div>
                     </div>
@@ -126,7 +124,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="float-right text-right">
-                    <input type="button" value="Save" class="btn btn-primary mr-2">
+                    <input type="button" value="Save" class="btn btn-primary mr-2" (click)="profileSubmit()">
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                 </div>
 

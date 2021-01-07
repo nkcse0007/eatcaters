@@ -81,11 +81,14 @@ export class TermsAndUseComponent implements OnInit {
 
 
     updateTermsOfUse() {
+        const formData = new FormData();
+        formData.append('content', this.contentEnglish);
+        formData.append('titleArabic', 'Terms Of Use');
+        formData.append('contentArabic', this.contentArabic);
+        formData.append('title', 'Terms Of Use');
+
         this.contentService.termsUsePost(
-            {
-                content: this.contentEnglish,
-                contentArabic: this.contentArabic
-            }
+            formData
         ).subscribe(res => {
             console.log(res);
         });

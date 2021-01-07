@@ -1,3 +1,4 @@
+<app-admin-header></app-admin-header>
 <section class="main-and-sidebar-section ">
     <div class="sidebar-area">
         <app-admin-sidebar></app-admin-sidebar>
@@ -17,8 +18,9 @@
                 <!-- <div class=" float-left drop_div">             <a class="delete-aal0s btn btn-danger btn-sm" id="delete_option" (click)="bulkDelete()" style="display: inline-block;"              href="javascript:;"><i class="fa fa-trash"></i></a>          </div> -->
                 <!-- <div class="langchangepart">               <span class="englishlang">English</span>               <label class="switch">                <input type="checkbox" value="true" >                <span class="slider round"></span>              </label>              <span class="argiclang">Arbic</span>           </div> -->
             </div>
-            <mat-form-field class="float-right tablefilter"><input matInput (keyup)="applyFilter($event.target.value)"
-                                                                   placeholder="Search by Category Name">
+            <mat-form-field class="float-right tablefilter">
+                <input matInput (keyup)="applyFilter($event.target.value)"
+                       placeholder="Search by Category Name">
             </mat-form-field>
             <div class="table-responsive">
                 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8  " style="width: 100%">
@@ -73,7 +75,8 @@
                                                                                        class="btn btn-primary actnbtn"
                                                                                        (click)="patchValue(element)"> <i
                                 class="fa fa-edit" aria-hidden="true"></i></a> <a
-                                href="javascript:void()" style="margin: 2px;" data-toggle="modal" data-target="#addcategory"
+                                href="javascript:void()" style="margin: 2px;" data-toggle="modal"
+                                data-target="#addcategory"
                                 class="btn btn-primary actnbtn" (click)="viewCategory(element)"> <i class="fa fa-eye"
                                                                                                     aria-hidden="true"></i></a>
                             <a href="javascript:void()"

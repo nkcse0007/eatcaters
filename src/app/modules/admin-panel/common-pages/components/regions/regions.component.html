@@ -10,28 +10,31 @@
         <h1 class="page-title">Regions</h1>
         <div class="mat-elevation-z8">
             <div class="button-act-grp">
-                <div class=" float-left drop_div"> <button type="button" class="btn btn-primary btn-sm"
-                        (click)="addCategory()" data-toggle="modal" data-target="#addcategory">Add
+                <div class=" float-left drop_div">
+                    <button type="button" class="btn btn-primary btn-sm"
+                            (click)="addCategory()" data-toggle="modal" data-target="#addcategory">Add
                         Regions
-                        <i class="fa fa-plus"></i></button> </div>
+                        <i class="fa fa-plus"></i></button>
+                </div>
                 <!-- <div class=" float-left drop_div">             <a class="delete-aal0s btn btn-danger btn-sm" id="delete_option" (click)="bulkDelete()" style="display: inline-block;"              href="javascript:;"><i class="fa fa-trash"></i></a>          </div> -->
                 <!-- <div class="langchangepart">               <span class="englishlang">English</span>               <label class="switch">                <input type="checkbox" value="true" >                <span class="slider round"></span>              </label>              <span class="argiclang">Arbic</span>           </div> -->
             </div>
-            <mat-form-field class="float-right tablefilter"> <input matInput (keyup)="applyFilter($event.target.value)"
-                    placeholder="Search by Category Name">
+            <mat-form-field class="float-right tablefilter"><input matInput (keyup)="applyFilter($event.target.value)"
+                                                                   placeholder="Search by Category Name">
             </mat-form-field>
             <div class="table-responsive">
-                <table mat-table [dataSource]="dataSource" class="mat-elevation-z8  ">
+                <table mat-table [dataSource]="dataSource" style="    width: 100%;" class="mat-elevation-z8  ">
                     <ng-container matColumnDef="select">
                         <th mat-header-cell *matHeaderCellDef="let element" style="width:45px;">
                             <mat-checkbox (change)="$event ? masterToggle() : null"
-                                [checked]="selection.hasValue() && isAllSelected()"
-                                [indeterminate]="selection.hasValue() && !isAllSelected()">
+                                          [checked]="selection.hasValue() && isAllSelected()"
+                                          [indeterminate]="selection.hasValue() && !isAllSelected()">
                             </mat-checkbox>
                         </th>
                         <td mat-cell *matCellDef="let row">
                             <mat-checkbox (click)="$event.stopPropagation()"
-                                (change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)">
+                                          (change)="$event ? selection.toggle(row) : null"
+                                          [checked]="selection.isSelected(row)">
                             </mat-checkbox>
                         </td>
                     </ng-container>
@@ -40,24 +43,29 @@
                         <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
                     </ng-container>
                     <ng-container matColumnDef="nameArabic">
-                        <th mat-header-cell *matHeaderCellDef>Category Name(in Arabic) </th>
+                        <th mat-header-cell *matHeaderCellDef>Category Name(in Arabic)</th>
                         <td mat-cell *matCellDef="let element"> {{element?.nameArabic}} </td>
                     </ng-container>
 
                     <ng-container matColumnDef="action">
-                        <th mat-header-cell *matHeaderCellDef style="width:140px;">Action</th>
-                        <td mat-cell class="datatable-ct" *matCellDef="let element"> <a href="javascript:void()"
-                                data-toggle="modal" data-target="#addcategory" class="btn btn-primary actnbtn"
-                                (click)="patchValue(element)"> <i class="fa fa-edit" aria-hidden="true"></i></a> <a
-                                href="javascript:void()" data-toggle="modal" data-target="#addcategory"
+                        <th mat-header-cell *matHeaderCellDef style="width:180px;">Action</th>
+                        <td mat-cell class="datatable-ct" *matCellDef="let element"><a href="javascript:void()"
+                                                                                       data-toggle="modal"
+                                                                                       data-target="#addcategory"
+                                                                                       class="btn btn-primary actnbtn"
+                                                                                       (click)="patchValue(element)"> <i
+                                class="fa fa-edit" aria-hidden="true"></i></a> <a
+                                href="javascript:void()" data-toggle="modal" style="margin: 2px;"
+                                data-target="#addcategory"
                                 class="btn btn-primary actnbtn" (click)="viewCategory(element)">
-                                <i class="fa fa-eye" aria-hidden="true"></i></a> <a href="javascript:void()"
-                                class="on-default btn btn-danger remove-row actnbtn"
-                                (click)="deleteCategory(element._id)"><i class="fa fa-trash" aria-hidden="true"></i>
-                            </a> </td>
+                            <i class="fa fa-eye" aria-hidden="true"></i></a> <a href="javascript:void()"
+                                                                                class="on-default btn btn-danger remove-row actnbtn"
+                                                                                (click)="deleteCategory(element._id)"><i
+                                class="fa fa-trash" aria-hidden="true"></i>
+                        </a></td>
                     </ng-container>
                     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"> </tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
             </div>
             <mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
@@ -71,8 +79,10 @@
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h5 class="modal-title">{{modalTitle}}</h5> <button type="button" class="close"
-                        data-dismiss="modal">&times;</button>
+                    <h5 class="modal-title">{{modalTitle}}</h5>
+                    <button type="button" class="close"
+                            data-dismiss="modal">&times;
+                    </button>
                 </div> <!-- Modal body -->
                 <div class="modal-body">
                     <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
@@ -80,24 +90,26 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <h5 class="langheading">For English Language</h5>
-                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Name in English"
-                                        formControlName="name" required>
+                                <mat-form-field class="full-width-mat"><input matInput placeholder="Name in English"
+                                                                              formControlName="name" required>
                                     <mat-error>This field is required</mat-error>
                                 </mat-form-field>
                             </div>
                             <div class="col-sm-6">
                                 <h5 class="langheading">For Arabic Language</h5>
-                                <mat-form-field class="full-width-mat"> <input matInput placeholder="Name in Arabic"
-                                        formControlName="nameArabic" style="direction: rtl;text-align:right;;">
+                                <mat-form-field class="full-width-mat"><input matInput placeholder="Name in Arabic"
+                                                                              formControlName="nameArabic"
+                                                                              style="direction: rtl;text-align:right;;">
                                     <mat-error style="direction: rtl;text-align:right;;">This
                                         field is
-                                        required</mat-error>
+                                        required
+                                    </mat-error>
                                 </mat-form-field>
                             </div>
                         </div>
 
-                        <div class="  text-right"> <input type="submit" value="Save" [disabled]="!categoryForm.valid"
-                                class="btn btn-primary mr-2">
+                        <div class="  text-right"><input type="submit" value="Save" [disabled]="!categoryForm.valid"
+                                                         class="btn btn-primary mr-2">
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                         </div>
                     </form>

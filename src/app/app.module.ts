@@ -13,7 +13,11 @@ import {AuthModule} from './modules/admin-panel/auth/auth.module';
 import {CommonPagesModule} from './modules/admin-panel/common-pages/common-pages.module';
 import {NgxDropzoneModule} from 'ngx-dropzone';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -26,8 +30,13 @@ import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
         BrowserModule,
         CommonModule,
         AuthModule,
+        MatFormFieldModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatInputModule,
         BrowserAnimationsModule,
         NgxDropzoneModule,
+        MatSelectModule,
         CommonPagesModule,
         NgMultiSelectDropDownModule.forRoot()
     ],

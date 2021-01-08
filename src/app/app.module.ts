@@ -16,8 +16,9 @@ import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatFormFieldModule} from '@angular/material/form-field';
-
+import {AgmCoreModule} from '@agm/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {environment} from '../environments/environment';
 
 @NgModule({
     declarations: [
@@ -38,7 +39,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
         NgxDropzoneModule,
         MatSelectModule,
         CommonPagesModule,
-        NgMultiSelectDropDownModule.forRoot()
+        NgMultiSelectDropDownModule.forRoot(),
+        AgmCoreModule.forRoot({
+            apiKey: environment.GOOGLE_MAP_KEY,
+            libraries: ['places']
+        })
     ],
     providers: [
         {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},

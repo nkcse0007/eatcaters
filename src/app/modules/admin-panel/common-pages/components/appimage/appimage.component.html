@@ -1,1 +1,41 @@
-<p>appimage works!</p>
+<app-admin-header></app-admin-header>
+<section class="main-and-sidebar-section ">
+    <div class="sidebar-area">
+        <app-admin-sidebar></app-admin-sidebar>
+    </div>
+    <div class="content-area">
+
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title">{{modalTitle}}</h5>
+
+                </div> <!-- Modal body -->
+                <div class="modal-body">
+                    <form (ngSubmit)="onSubmit()" [formGroup]="categoryForm">
+                        <div class="form-group"><label>App Image</label>
+
+
+                            <ngx-dropzone (change)="onSelect($event)">
+                                <ngx-dropzone-label>Drop file, here!</ngx-dropzone-label>
+                                <ngx-dropzone-preview (removed)="onRemove(f)" *ngFor="let f of files"
+                                                      [removable]="true">
+                                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                </ngx-dropzone-preview>
+                            </ngx-dropzone>
+
+
+                        </div>
+                        <div class="  text-right"><input [disabled]="!categoryForm.valid" class="btn btn-primary mr-2"
+                                                         type="submit" value="Save">
+
+                        </div>
+                    </form>
+                </div> <!-- Modal footer -->
+            </div>
+
+        </div>
+    </div>
+    <app-admin-footer></app-admin-footer>
+</section>

@@ -21,8 +21,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AdminHeaderComponent} from './components/admin-header/admin-header.component';
 import {AdminFooterComponent} from './components/admin-footer/admin-footer.component';
 import {AdminSidebarComponent} from './components/admin-sidebar/admin-sidebar.component';
+import {AgmCoreModule} from '@agm/core';
 
-// import { AgmCoreModule } from '@agm/core'; 
 @NgModule({
     declarations: [HeaderComponent, FooterComponent, AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent],
     imports: [
@@ -32,13 +32,11 @@ import {AdminSidebarComponent} from './components/admin-sidebar/admin-sidebar.co
         MatTableModule, MatPaginatorModule, MatButtonModule, MatSortModule, MatNativeDateModule,
         MatInputModule, MatSelectModule, MatRadioModule, NgxEditorModule, MatDatepickerModule,
         MatCheckboxModule, MatFormFieldModule, ReactiveFormsModule, FormsModule, MatSnackBarModule,
-        // AgmCoreModule.forRoot({
-        //   apiKey: 'AIzaSyCs1TNFnOnc8XZC8cXlA3-Tnb5It9J-qGA',
-        //   libraries: ['places']
-        // })
+        AgmCoreModule
     ],
     exports: [
-        HeaderComponent, FooterComponent, AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent, NgwWowModule, SlickCarouselModule, RouterModule,
+        HeaderComponent, FooterComponent, AdminHeaderComponent, AdminFooterComponent,
+        AdminSidebarComponent, NgwWowModule, SlickCarouselModule, RouterModule,
         HttpClientModule,
         MatProgressSpinnerModule, MatSlideToggleModule,
         MatTableModule, MatPaginatorModule, MatButtonModule, MatSortModule, MatNativeDateModule,

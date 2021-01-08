@@ -39,6 +39,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
+import {AgmCoreModule} from '@agm/core';
+import {environment} from '../../../../environments/environment';
 
 @NgModule({
     declarations: [TermsAndUseComponent, AdminPrivacyPolicyComponent, CommonPagesComponent, AdminCareersComponent,
@@ -49,7 +51,11 @@ import {NgMultiSelectDropDownModule} from 'ng-multiselect-dropdown';
     imports: [
         CommonModule,
         CommonPagesRoutingModule, SharedModule, NgxDropzoneModule, NgMultiSelectDropDownModule, MatSelectModule,
-        MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule
+        MatFormFieldModule, MatInputModule, FormsModule, ReactiveFormsModule,
+        AgmCoreModule.forRoot({
+            apiKey: environment.GOOGLE_MAP_KEY,
+            libraries: ['places']
+        })
     ]
 })
 export class CommonPagesModule {

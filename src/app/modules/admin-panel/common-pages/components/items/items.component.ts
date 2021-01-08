@@ -20,6 +20,7 @@ const ELEMENT_DATA: any[] = [
 export class ItemsComponent implements OnInit {
 
     categoryId: any;
+    itemId: any;
     loader = false;
     modalTitle = 'Add Items';
     categoryForm: FormGroup;
@@ -224,6 +225,7 @@ export class ItemsComponent implements OnInit {
         this.submetted = true;
         const formData = new FormData();
         if (this.categoryId) {
+            formData.append('itemid', this.categoryId);
             formData.append('catid', this.selectedCategory._id);
             formData.append('name', this.categoryForm.value.name);
             formData.append('fat', this.categoryForm.value.fat);
@@ -305,7 +307,6 @@ export class ItemsComponent implements OnInit {
     }
 
     patchValue(elem) {
-        debugger;
         this.categoryId = elem._id;
         console.log('edit id', this.categoryId);
         this.modalTitle = 'Edit Items';
@@ -321,11 +322,25 @@ export class ItemsComponent implements OnInit {
         this.uploadedImage = elem.image;
         console.log('geted image', elem.image);
         this.imagePath = [''];
+        debugger;
+        this.selectedAdditional = elem.additional.map(a => a._id);
+        this.selectedSide1 = elem.side1.map(a => a._id);
+        this.selectedSide2 = elem.side2.map(a => a._id);
+        this.selectedSauces = elem.sauces.map(a => a._id);
 
-        this.selectedAdditional = elem.additional;
-        this.selectedSide1 = elem.side1;
-        this.selectedSide2 = elem.side2;
-        this.selectedSauces = elem.sauces;
+        this.mySauces = this.fb.group({
+            sauces: [this.selectedSauces]
+        });
+        this.mySide1 = this.fb.group({
+            side1: [this.selectedSide1]
+        });
+        this.mySide2 = this.fb.group({
+            side2: [this.selectedSide2]
+        });
+        this.myAdditional = this.fb.group({
+            additional: [this.selectedAdditional]
+        });
+
         this.selectedCategory = elem.categoryId;
 
     }

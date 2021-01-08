@@ -1,1 +1,160 @@
-<p>drivers works!</p>
+<app-admin-header></app-admin-header>
+<section class="main-and-sidebar-section ">
+    <div class="sidebar-area">
+        <app-admin-sidebar></app-admin-sidebar>
+    </div>
+    <div class="content-area">
+
+        <!--loader code  <div class="loading-indicator" *ngIf="loader">            <mat-spinner mode="indeterminate"></mat-spinner>          </div>  -->
+
+        <h1 class="page-title">Users</h1>
+        <div class="mat-elevation-z8">
+            <div class="button-act-grp">
+                <!-- <div class=" float-left drop_div">             <a class="delete-aal0s btn btn-danger btn-sm" id="delete_option" (click)="bulkDelete()" style="display: inline-block;"              href="javascript:;"><i class="fa fa-trash"></i></a>          </div> -->
+                <!-- <div class="langchangepart">               <span class="englishlang">English</span>               <label class="switch">                <input type="checkbox" value="true" >                <span class="slider round"></span>              </label>              <span class="argiclang">Arbic</span>           </div> -->
+            </div>
+            <mat-form-field class="float-right tablefilter"><input (keyup)="applyFilter($event.target.value)" matInput
+                                                                   placeholder="Search by Category Name">
+            </mat-form-field>
+
+
+            <div class="mat-elevation-z8">
+                <div class="button-act-grp">
+                    <!-- <div class=" float-left drop_div">         <a class="delete-aal0s btn btn-danger btn-sm" id="delete_option" (click)="bulkDelete()" style="display: inline-block;"          href="javascript:;"><i class="fa fa-trash"></i></a>      </div> -->
+                </div>
+
+                <table [dataSource]="dataSource" class="mat-elevation-z8  " mat-table style="    width: 100%;">
+                    <ng-container matColumnDef="select">
+                        <th *matHeaderCellDef="let element" mat-header-cell style="width:45px;">
+                            <mat-checkbox (change)="$event ? masterToggle() : null"
+                                          [checked]="selection.hasValue() && isAllSelected()"
+                                          [indeterminate]="selection.hasValue() && !isAllSelected()"></mat-checkbox>
+                        </th>
+                        <td *matCellDef="let row" mat-cell>
+                            <mat-checkbox (change)="$event ? selection.toggle(row) : null"
+                                          (click)="$event.stopPropagation()"
+                                          [checked]="selection.isSelected(row)">
+                            </mat-checkbox>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="name">
+                        <th *matHeaderCellDef mat-header-cell> Name</th>
+                        <td *matCellDef="let element" mat-cell> {{element?.name}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="email">
+                        <th *matHeaderCellDef mat-header-cell> Email</th>
+                        <td *matCellDef="let element" mat-cell> {{element?.email}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="image">
+                        <th *matHeaderCellDef mat-header-cell> Profile Image</th>
+                        <td *matCellDef="let element" mat-cell><img
+                                [src]="element?.image" alt=""
+                                onerror="this.onerror=null;this.src='/assets/images/default.jpg';" width="40"></td>
+                    </ng-container>
+                    <ng-container matColumnDef="address">
+                        <th *matHeaderCellDef mat-header-cell>Address</th>
+                        <td *matCellDef="let element" mat-cell> {{element?.address}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="phoneNumber">
+                        <th *matHeaderCellDef mat-header-cell>Phone No.</th>
+                        <td *matCellDef="let element" mat-cell> {{element?.countryCode}} {{element?.phoneNumber}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="drivingLiceneceNumber">
+                        <th *matHeaderCellDef mat-header-cell>Driving Licence Number</th>
+                        <td *matCellDef="let element" mat-cell> {{element?.drivingLiceneceNumber}}</td>
+                    </ng-container>
+                    <ng-container matColumnDef="accountStatus">
+                        <th *matHeaderCellDef mat-header-cell style="width:180px"> Activate/Deactivate</th>
+                        <td *matCellDef="let element" mat-cell>
+                            <!-- <label class="switch">            <input type="checkbox" [checked]="element.accountStatus" value="{{element.accountStatus}}">            <span class="slider round"></span>          </label> -->
+                            <label *ngIf="element.accountStatus== true" class="badge badge-success"><span>Yes</span>
+                            </label>
+                            <label *ngIf="element.accountStatus==false" class="badge badge-danger"> <span>No</span>
+                            </label>
+                        </td>
+                    </ng-container>
+                    <ng-container matColumnDef="action">
+                        <th *matHeaderCellDef mat-header-cell style="width:60px;">Action</th>
+                        <td *matCellDef="let element" class="datatable-ct" mat-cell><a (click)="viewDetails(element)"
+                                                                                       class="btn btn-primary actnbtn"
+                                                                                       data-target="#showdetail"
+                                                                                       data-toggle="modal"
+                                                                                       href="javascript:void()"> <i
+                                aria-hidden="true" class="fa fa-eye"></i></a>
+                            <!-- <a   href="javascript:void()"              class="on-default btn btn-danger remove-row actnbtn"><i class="fa fa-trash" aria-hidden="true"></i> </a> -->
+                        </td>
+                    </ng-container>
+                    <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+                    <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+                </table>
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+            </div>
+            <div class="modal" id="showdetail">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                            <h5 class="modal-title">User Details</h5>
+                            <button class="close" data-dismiss="modal"
+                                    type="button">&times;
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- <div class="loading-indicator">            <mat-spinner mode="indeterminate"></mat-spinner>          </div> -->
+                            <ul class="details-list">
+                                <li><strong class="info-label">Name</strong><span
+                                        class="infovalue">{{userDetails?.name}}</span>
+                                </li>
+                                <li><strong class="info-label">Email</strong><span
+                                        class="infovalue">{{userDetails?.email}}</span></li>
+                                <li><strong class="info-label">Profile Image</strong><span class="infovalue"><img
+                                        [src]="userDetails?.image"
+                                        alt=""
+                                        width="40"></span>
+                                </li>
+                                <li><strong class="info-label">Phone No.</strong><span
+                                        class="infovalue">{{userDetails?.phoneNumber}}</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal right-lightbox modal right fade" id="rightmodal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="myModalLabel2">User Details</h4>
+                            <button aria-label="Close" class="close"
+                                    data-dismiss="modal" type="button"><span aria-hidden="true">×</span></button>
+                        </div> <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="tabling-boxt6">
+                                <ul class="nav nav-tabs">
+                                    <li><a class="active" data-toggle="tab" href="#detail">Details</a></li>
+                                    <!-- <li><a data-toggle="tab" href="#vehicledetails">Vehicle Details</a></li>                                <li><a data-toggle="tab" href="#address">Address</a></li> -->
+                                    <!--  <li><a data-toggle="tab" href="#history">Analysis</a></li> -->
+                                </ul>
+                                <div class="btn-group drop-ellips">
+                                    <ul class="dropdown-menu">
+                                        <li>Dummy</li>
+                                        <li>Dummy</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="detail">
+                                    <ul class="list-in-mright">
+                                        <li><span class="caption"> Name:</span> <span class="value" id=" "></span></li>
+                                        <li><span class="caption">Email:</span> <span class="value" id=" "></span></li>
+                                        <li><span class="caption">Dealers:</span> <span class="value"
+                                                                                        id=" "> John</span></li>
+                                    </ul>
+                                </div>
+                            </div> <!-- Modal footer -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

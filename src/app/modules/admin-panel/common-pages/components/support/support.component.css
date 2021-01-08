@@ -9,3 +9,7 @@
 
 .admin-careers-section .page-title{background:#75ad3f;margin-top: 0px;padding:13px 10px;border:none;color:#fff;}
 .bgwhitepart{padding:15px 20px 0px}
+
+agm-map {
+    height: 300px;
+}

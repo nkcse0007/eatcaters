@@ -1,208 +1,351 @@
 <app-admin-header></app-admin-header>
+
+
 <section class="main-and-sidebar-section ">
     <div class="sidebar-area">
         <app-admin-sidebar></app-admin-sidebar>
     </div>
     <div class="content-area">
-        <h1 class="page-title">Faq</h1>
 
-        <!-- <mat-form-field class="full-width-mat">
-        <input matInput   placeholder="Title">
-      </mat-form-field> -->
+        <h1 class="page-title">FAQs</h1>
 
-        <div class="container">
-            <div class="clearfix"></div>
-            <div class="faqcontentpart">
-                <ul class="nav nav-tabs faqtabs justify-content-center">
-                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#general"> <span
-                            *ngIf="language=='en'">General</span> <span *ngIf="language=='ar'">جنرال لواء</span>
-                    </a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#orderrelated"> <span
-                            *ngIf="language=='en'">Oreder Related</span> <span *ngIf="language=='ar'">ترتيب ذات
+        <ul class="nav nav-tabs faqtabs justify-content-center">
+            <li (click)="faqType = '1'" class="nav-item"><a class="nav-link active" data-toggle="tab"
+                                                            href="#general"> <span
+                    *ngIf="language=='en'">General</span> <span *ngIf="language=='ar'">جنرال لواء</span>
+            </a></li>
+            <li (click)="faqType = '2'" class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                            href="#orderrelated"> <span
+                    *ngIf="language=='en'">Oreder Related</span> <span *ngIf="language=='ar'">ترتيب ذات
                 الصلة</span> </a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#technical"> <span
-                            *ngIf="language=='en'">Technical</span> <span *ngIf="language=='ar'">فني</span> </a>
-                    </li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="general">
-                        <h3 *ngIf="language=='en'">General</h3>
-                        <h3 *ngIf="language=='ar'">جنرال لواء</h3>
-
-                        <button class="btn btn-primary" style="float: right; margin: 10px;"
-                                (click)="addNewFaq('general')">Add FAQ
-                        </button>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Question</th>
-                                <th scope="col">Answer</th>
-                            </tr>
-                            </thead>
-                            <tbody *ngFor="let d of data; let i= index">
-                            <tr *ngIf="d.type == '1'">
-                                <th scope="row">{{i}}</th>
-                                <td>
-                                    <div class="form-group green-border-focus">
-                                        <div *ngIf="language == 'en'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].question">
-                                                {{d.question}}
-                                            </textarea>
-                                        </div>
-                                        <div *ngIf="language == 'ar'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].questionArabic">
-                                                {{d.questionArabic}}
-                                            </textarea>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group green-border-focus">
-                                        <div *ngIf="language == 'en'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].answer">
-                                                {{d.answer}}
-                                            </textarea>
-                                        </div>
-                                        <div *ngIf="language == 'ar'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].answerArabic" (change)="changeFaq('1', d._id, i)">
-                                                {{d.answerArabic}}
-                                            </textarea>
-                                        </div>
-
-                                    </div>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+            <li (click)="faqType = '3'" class="nav-item"><a class="nav-link" data-toggle="tab" href="#technical"> <span
+                    *ngIf="language=='en'">Technical</span> <span *ngIf="language=='ar'">فني</span> </a>
+            </li>
+        </ul>
 
 
+        <div class="tab-content">
+            <div class="tab-pane active" id="general">
+                <h3 *ngIf="language=='en'">General</h3>
+                <h3 *ngIf="language=='ar'">جنرال لواء</h3>
+
+                <div class="mat-elevation-z8">
+                    <div class="button-act-grp">
+                        <div class=" float-left drop_div">
+                            <button (click)="openAddFaqModel()" class="btn btn-primary btn-sm"
+                                    data-target="#addcategory" data-toggle="modal" type="button">Add FAQ <i
+                                    class="fa fa-plus"></i></button>
+                        </div>
+                        <!-- <div class=" float-left drop_div">             <a class="delete-aal0s btn btn-danger btn-sm" id="delete_option" (click)="bulkDelete()" style="display: inline-block;"              href="javascript:;"><i class="fa fa-trash"></i></a>          </div> -->
+                        <!-- <div class="langchangepart">               <span class="englishlang">English</span>               <label class="switch">                <input type="checkbox" value="true" >                <span class="slider round"></span>              </label>              <span class="argiclang">Arbic</span>           </div> -->
                     </div>
-                    <div class="tab-pane   fade" id="orderrelated">
-                        <h3 *ngIf="language=='en'">Order Related</h3>
-                        <h3 *ngIf="language=='ar'">ترتيب ذات الصلة</h3>
-                        <button class="btn btn-primary" style="float: right; margin: 10px;"
-                                (click)="addNewFaq('orderRelated')">Add FAQ
-                        </button>
-
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Question</th>
-                                <th scope="col">Answer</th>
-                            </tr>
-                            </thead>
-                            <tbody *ngFor="let d of data; let i= index">
-                            <tr *ngIf="d.type == '2'">
-                                <th scope="row">{{i}}</th>
-                                <td>
-                                    <div class="form-group green-border-focus">
-                                        <div *ngIf="language == 'en'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].question">
-                                                {{d.question}}
-                                            </textarea>
-                                        </div>
-                                        <div *ngIf="language == 'ar'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].questionArabic">
-                                                {{d.questionArabic}}
-                                            </textarea>
-                                        </div>
-                                    </div>
+                    <mat-form-field class="float-right tablefilter">
+                        <input (keyup)="applyFilter($event)" matInput
+                               placeholder="Search by FAQ questions">
+                    </mat-form-field>
+                    <div class="table-responsive">
+                        <table [dataSource]="dataSourceGeneral" class="mat-elevation-z8  " mat-table matSort
+                               style="    width: 100%;">
+                            <ng-container matColumnDef="select">
+                                <td *matCellDef="let row" mat-cell>
+                                    <mat-checkbox (change)="$event ? selection.toggle(row) : null"
+                                                  (click)="$event.stopPropagation()"
+                                                  [checked]="selection.isSelected(row)">
+                                    </mat-checkbox>
                                 </td>
-                                <td>
-                                    <div class="form-group green-border-focus">
-                                        <div *ngIf="language == 'en'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].answer">
-                                                {{d.answer}}
-                                            </textarea>
-                                        </div>
-                                        <div *ngIf="language == 'ar'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].answerArabic" (change)="changeFaq('2', d._id, i)">
-                                                {{d.answerArabic}}
-                                            </textarea>
-                                        </div>
-
-                                    </div>
+                            </ng-container>
+                            <ng-container matColumnDef="question">
+                                <th *matHeaderCellDef mat-header-cell>Question(in English)</th>
+                                <td *matCellDef="let element" mat-cell>
+                                    <div>{{element?.question}}</div>
                                 </td>
-                            </tr>
-                            </tbody>
+                            </ng-container>
+                            <ng-container matColumnDef="answer">
+                                <th *matHeaderCellDef mat-header-cell>Answer(in Arabic)</th>
+                                <td *matCellDef="let element" mat-cell>
+                                    <div>{{element?.answer}}</div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="action">
+                                <th *matHeaderCellDef mat-header-cell style="width:180px;">Action</th>
+                                <td *matCellDef="let element" class="datatable-ct" mat-cell>
+                                    <a (click)="patchFaq(element)"
+                                       class="btn btn-primary actnbtn"
+                                       data-target="#addcategory"
+                                       data-toggle="modal"
+                                       href="javascript:void()"> <i
+                                            aria-hidden="true" class="fa fa-edit"></i></a>
+                                    <a
+                                            (click)="viewFaq(element)"
+                                            class="btn btn-primary actnbtn"
+                                            data-target="#addcategory"
+                                            data-toggle="modal"
+                                            href="javascript:void()" style="margin: 2px;"> <i aria-hidden="true"
+                                                                                              class="fa fa-eye"></i></a>
+                                    <a
+                                            (click)="deleteFaq(element._id)"
+                                            class="on-default btn btn-danger remove-row actnbtn"><i
+                                            aria-hidden="true"
+                                            class="fa fa-trash"></i>
+                                    </a></td>
+                            </ng-container>
+                            <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+                            <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
                         </table>
-
-
                     </div>
-                    <div class="tab-pane   fade" id="technical">
-                        <h3 *ngIf="language=='en'">Technical</h3>
-                        <h3 *ngIf="language=='ar'">فني</h3>
-                        <button class="btn btn-primary" style="float: right; margin: 10px;"
-                                (click)="addNewFaq('technical')">Add FAQ
-                        </button>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+                </div>
 
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Question</th>
-                                <th scope="col">Answer</th>
-                            </tr>
-                            </thead>
-                            <tbody *ngFor="let d of data; let i= index">
-                            <tr *ngIf="d.type == '3'">
-                                <th scope="row">{{i}}</th>
-                                <td>
-                                    <div class="form-group green-border-focus">
-                                        <div *ngIf="language == 'en'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].question">
-                                                {{d.question}}
-                                            </textarea>
-                                        </div>
-                                        <div *ngIf="language == 'ar'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].questionArabic">
-                                                {{d.questionArabic}}
-                                            </textarea>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="form-group green-border-focus">
-                                        <div *ngIf="language == 'en'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].answer">
-                                                {{d.answer}}
-                                            </textarea>
-                                        </div>
-                                        <div *ngIf="language == 'ar'">
-                                            <textarea class="form-control"
-                                                      rows="3" [(ngModel)]="data[i].answerArabic" (change)="changeFaq('3', d._id, i)">
-                                                {{d.answerArabic}}
-                                            </textarea>
-                                        </div>
+            </div>
+            <div class="tab-pane   fade" id="orderrelated">
+                <h3 *ngIf="language=='en'">Order Related</h3>
+                <h3 *ngIf="language=='ar'">ترتيب ذات الصلة</h3>
+                <div class="mat-elevation-z8">
+                    <div class="button-act-grp">
+                        <div class=" float-left drop_div">
+                            <button (click)="openAddFaqModel()" class="btn btn-primary btn-sm"
+                                    data-target="#addcategory" data-toggle="modal" type="button">Add FAQ <i
+                                    class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <mat-form-field class="float-right tablefilter">
+                        <input (keyup)="applyFilter($event)" matInput
+                               placeholder="Search by Category Name">
+                    </mat-form-field>
+                    <div class="table-responsive">
+                        <table [dataSource]="dataSourceOrderRelated" class="mat-elevation-z8  " mat-table
+                               style="    width: 100%;">
 
+                            <ng-container matColumnDef="select">
+                                <th *matHeaderCellDef="let element" mat-header-cell style="width:45px;">
+                                    <div>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                                      [checked]="selection.hasValue() && isAllSelected()"
+                                                      [indeterminate]="selection.hasValue() && !isAllSelected()"></mat-checkbox>
                                     </div>
+                                </th>
+                                <td *matCellDef="let row" mat-cell>
+                                    <mat-checkbox (change)="$event ? selection.toggle(row) : null"
+                                                  (click)="$event.stopPropagation()"
+                                                  [checked]="selection.isSelected(row)">
+                                    </mat-checkbox>
                                 </td>
-                            </tr>
-                            </tbody>
+                            </ng-container>
+                            <ng-container matColumnDef="question">
+                                <th *matHeaderCellDef mat-header-cell>Question(in English)</th>
+                                <td *matCellDef="let element" mat-cell>
+                                    <div>{{element?.question}}</div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="answer">
+                                <th *matHeaderCellDef mat-header-cell>Answer(in English)</th>
+                                <td *matCellDef="let element" mat-cell>
+                                    <div>{{element?.answer}}</div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="action">
+                                <th *matHeaderCellDef mat-header-cell style="width:180px;">Action</th>
+                                <td *matCellDef="let element" class="datatable-ct" mat-cell>
+                                    <a (click)="patchFaq(element)"
+                                       class="btn btn-primary actnbtn"
+                                       data-target="#addcategory"
+                                       data-toggle="modal"
+                                       href="javascript:void()"> <i
+                                            aria-hidden="true" class="fa fa-edit"></i></a>
+                                    <a
+                                            (click)="viewFaq(element)"
+                                            class="btn btn-primary actnbtn"
+                                            data-target="#addcategory"
+                                            data-toggle="modal"
+                                            href="javascript:void()" style="margin: 2px;"> <i aria-hidden="true"
+                                                                                              class="fa fa-eye"></i></a>
+                                    <a
+                                            (click)="deleteFaq(element._id)"
+                                            class="on-default btn btn-danger remove-row actnbtn"><i
+                                            aria-hidden="true"
+                                            class="fa fa-trash"></i>
+                                    </a></td>
+                            </ng-container>
+                            <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+                            <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
                         </table>
-
-
                     </div>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
                 </div>
             </div>
-        </div>
-<!--        <div class="text-right">-->
-<!--            <input type="button" class="btn btn-primary mt-3" value="Save">-->
-<!--        </div>-->
-    </div>
+            <div class="tab-pane   fade" id="technical">
+                <h3 *ngIf="language=='en'">Technical</h3>
+                <h3 *ngIf="language=='ar'">فني</h3>
+                <div class="mat-elevation-z8">
+                    <div class="button-act-grp">
+                        <div class=" float-left drop_div">
+                            <button (click)="openAddFaqModel()" class="btn btn-primary btn-sm"
+                                    data-target="#addcategory" data-toggle="modal" type="button">Add FAQ <i
+                                    class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <mat-form-field class="float-right tablefilter">
+                        <input (keyup)="applyFilter($event)" matInput
+                               placeholder="Search by Category Name">
+                    </mat-form-field>
+                    <div class="table-responsive">
+                        <table [dataSource]="dataSourceTechnical" class="mat-elevation-z8  " mat-table
+                               style="    width: 100%;">
 
+                            <ng-container matColumnDef="select">
+                                <th *matHeaderCellDef="let element" mat-header-cell style="width:45px;">
+                                    <div>
+                                        <mat-checkbox (change)="$event ? masterToggle() : null"
+                                                      [checked]="selection.hasValue() && isAllSelected()"
+                                                      [indeterminate]="selection.hasValue() && !isAllSelected()"></mat-checkbox>
+                                    </div>
+                                </th>
+                                <td *matCellDef="let row" mat-cell>
+                                    <mat-checkbox (change)="$event ? selection.toggle(row) : null"
+                                                  (click)="$event.stopPropagation()"
+                                                  [checked]="selection.isSelected(row)">
+                                    </mat-checkbox>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="question">
+                                <th *matHeaderCellDef mat-header-cell>Question(in English)</th>
+                                <td *matCellDef="let element" mat-cell>
+                                    <div>{{element?.question}}</div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="answer">
+                                <th *matHeaderCellDef mat-header-cell>Answer(in Arabic)</th>
+                                <td *matCellDef="let element" mat-cell>
+                                    <div>{{element?.answer}}</div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="action">
+                                <th *matHeaderCellDef mat-header-cell style="width:180px;">Action</th>
+                                <td *matCellDef="let element" class="datatable-ct" mat-cell>
+                                    <a (click)="patchFaq(element)"
+                                       class="btn btn-primary actnbtn"
+                                       data-target="#addcategory"
+                                       data-toggle="modal"
+                                       href="javascript:void()"> <i
+                                            aria-hidden="true" class="fa fa-edit"></i></a>
+                                    <a
+                                            (click)="viewFaq(element)"
+                                            class="btn btn-primary actnbtn"
+                                            data-target="#addcategory"
+                                            data-toggle="modal"
+                                            href="javascript:void()" style="margin: 2px;"> <i aria-hidden="true"
+                                                                                              class="fa fa-eye"></i></a>
+                                    <a
+                                            (click)="deleteFaq(element._id)"
+                                            class="on-default btn btn-danger remove-row actnbtn"><i
+                                            aria-hidden="true"
+                                            class="fa fa-trash"></i>
+                                    </a></td>
+                            </ng-container>
+                            <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+                            <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+                        </table>
+                    </div>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <app-admin-footer></app-admin-footer>
+    <div class="modal" id="addcategory">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title">{{modalTitle}}</h5>
+                    <button class="close" data-dismiss="modal"
+                            type="button">&times;
+                    </button>
+                </div> <!-- Modal body -->
+                <div class="modal-body">
+                    <form [formGroup]="categoryForm">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h5 class="langheading">For English Language</h5>
+                                <mat-form-field class="full-width-mat">
+                                    <div class="form-outline">
+                                        <textarea [(ngModel)]="currentElem.question" class="form-control"
+                                                  formControlName="question" id="question" matInput
+                                                  placeholder="Enter Question (in English)"
+                                                  required rows="4">{{currentElem.question}}</textarea>
+                                    </div>
+                                    <mat-error>This field is required</mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <h5 class="langheading">For English Language</h5>
+                                <mat-form-field class="full-width-mat">
+                                    <div class="form-outline">
+                                        <textarea [(ngModel)]="currentElem.answer" class="form-control"
+                                                  formControlName="answer" id="answer" matInput
+                                                  placeholder="Enter Answer (in English)" required
+                                                  rows="4">{{currentElem.answer}}</textarea>
+                                    </div>
+                                    <mat-error style="direction: rtl;text-align:right;">This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                <h5 class="langheading">For Arabic Language</h5>
+                                <mat-form-field class="full-width-mat">
+                                    <div class="form-outline">
+                                    <textarea [(ngModel)]="currentElem.questionArabic" class="form-control"
+                                              formControlName="questionArabic" matInput
+                                              placeholder="Enter Question (in Arabic)"
+                                              rows="4"
+                                              style="direction: rtl;text-align:right;">{{currentElem.questionArabic}}</textarea>
+                                    </div>
+                                    <mat-error style="direction: rtl;text-align:right;">This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                <h5 class="langheading">For Arabic Language</h5>
+                                <mat-form-field class="full-width-mat">
+                                    <div class="form-outline">
+                                    <textarea [(ngModel)]="currentElem.answerArabic" class="form-control"
+                                              formControlName="answerArabic" matInput
+                                              placeholder="Enter Answer (in Arabic)"
+                                              rows="4"
+                                              style="direction: rtl;text-align:right;">{{currentElem.answerArabic}}</textarea>
+                                    </div>
+                                    <mat-error style="direction: rtl;text-align:right;">This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div *ngIf="modalTitle !== 'View FAQ'" class="  text-right">
+                                <button (click)="addFAQ()" *ngIf="modalTitle === 'Add FAQ'" class="btn btn-primary"
+                                        style="margin-right: 10px;"> Save
+                                </button>
+                                <button (click)="updateFaq()" *ngIf="modalTitle === 'Edit FAQ'" class="btn btn-primary"
+                                        style="margin-right: 10px;"> Save
+                                </button>
+                                <button class="btn btn-primary" data-dismiss="modal"
+                                        type="button">Close
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- Modal footer -->
+            </div>
+        </div>
+    </div>
 </section>
+
+
 <app-admin-footer></app-admin-footer>

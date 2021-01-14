@@ -21,7 +21,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AdminHeaderComponent} from './components/admin-header/admin-header.component';
 import {AdminFooterComponent} from './components/admin-footer/admin-footer.component';
 import {AdminSidebarComponent} from './components/admin-sidebar/admin-sidebar.component';
-import {AgmCoreModule} from '@agm/core';
+// import {AgmCoreModule} from '@agm/core';
 
 @NgModule({
     declarations: [HeaderComponent, FooterComponent, AdminHeaderComponent, AdminFooterComponent, AdminSidebarComponent],
@@ -32,7 +32,7 @@ import {AgmCoreModule} from '@agm/core';
         MatTableModule, MatPaginatorModule, MatButtonModule, MatSortModule, MatNativeDateModule,
         MatInputModule, MatSelectModule, MatRadioModule, NgxEditorModule, MatDatepickerModule,
         MatCheckboxModule, MatFormFieldModule, ReactiveFormsModule, FormsModule, MatSnackBarModule,
-        AgmCoreModule
+        // AgmCoreModule
     ],
     exports: [
         HeaderComponent, FooterComponent, AdminHeaderComponent, AdminFooterComponent,

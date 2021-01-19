@@ -154,6 +154,7 @@ export class AdminFaqComponent implements OnInit {
     }
 
     openAddFaqModel() {
+        this.modalTitle = 'Add FAQ';
         this.currentElem = {};
     }
 

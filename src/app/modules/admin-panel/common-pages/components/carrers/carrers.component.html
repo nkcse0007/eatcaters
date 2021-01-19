@@ -1,140 +1,200 @@
 <app-admin-header></app-admin-header>
+
+
 <section class="main-and-sidebar-section ">
     <div class="sidebar-area">
         <app-admin-sidebar></app-admin-sidebar>
     </div>
     <div class="content-area">
-        <h1 class="page-title">Careers </h1>
-        <div class="row mt-2">
-            <div class="tab-content-section">
-                <div class="container">
-                    <nav>
-                        <div class="nav nav-tabs justify-content-center" id="nav-tab" role="tablist"> <a
-                                class="nav-item nav-link active" (click)="careerFilter('1')" id="nav-home-tab"
-                                data-toggle="tab" href="#sales" role="tab" aria-controls="nav-home"
-                                aria-selected="true"><span *ngIf="language=='en'">Sales</span><span
-                                    *ngIf="language=='ar'">مبيعات</span> </a> <a class="nav-item nav-link"
-                                id="nav-profile-tab" (click)="careerFilter('2')" data-toggle="tab"
-                                href="#growthperformance" role="tab" aria-controls="nav-profile" aria-selected="false">
-                                <span *ngIf="language=='en'">Growth & Performance</span> <span
-                                    *ngIf="language=='ar'">أداء
-                                    النمو</span></a> <a class="nav-item nav-link" id="nav-contact-tab"
-                                (click)="careerFilter('3')" data-toggle="tab" href="#marketing" role="tab"
-                                aria-controls="nav-contact" aria-selected="false"><span
-                                    *ngIf="language=='en'">Marketing</span> <span *ngIf="language=='ar'">تسويق</span>
-                            </a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" (click)="careerFilter('4')"
-                                data-toggle="tab" href="#people" role="tab" aria-controls="nav-contact"
-                                aria-selected="false"><span *ngIf="language=='en'">People</span> <span
-                                    *ngIf="language=='ar'">اشخاص</span> </a> <a class="nav-item nav-link"
-                                id="nav-contact-tab" (click)="careerFilter('5')" data-toggle="tab" href="#technology"
-                                role="tab" aria-controls="nav-contact" aria-selected="false"><span
-                                    *ngIf="language=='en'">Technology</span> <span *ngIf="language=='ar'">تقنية</span>
-                            </a>
-                            <a class="nav-item nav-link" id="nav-contact-tab" (click)="careerFilter('6')"
-                                data-toggle="tab" href="#finance" role="tab" aria-controls="nav-contact"
-                                aria-selected="false"><span *ngIf="language=='en'">Finance</span> <span
-                                    *ngIf="language=='ar'">المالية</span> </a>
+
+        <h1 class="page-title">Career</h1>
+
+        <ul class="nav nav-tabs faqtabs justify-content-center">
+            <li (click)="careerType = '1'" class="nav-item"><a class="nav-link active" data-toggle="tab"
+                                                               href="#sales"> <span
+                    *ngIf="language=='en'">Sales</span> <span *ngIf="language=='ar'">جنرال لواء</span>
+            </a></li>
+            <li (click)="careerType = '2'" class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                               href="#growth"> <span
+                    *ngIf="language=='en'">Growth & Performance</span> <span *ngIf="language=='ar'">ترتيب ذات
+                الصلة</span> </a></li>
+            <li (click)="careerType = '3'" class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                               href="#marketing"> <span
+                    *ngIf="language=='en'">Marketing</span> <span *ngIf="language=='ar'">فني</span> </a>
+            </li>
+            <li (click)="careerType = '4'" class="nav-item"><a class="nav-link" data-toggle="tab" href="#people"> <span
+                    *ngIf="language=='en'">People</span> <span *ngIf="language=='ar'">فني</span> </a>
+            </li>
+            <li (click)="careerType = '5'" class="nav-item"><a class="nav-link" data-toggle="tab"
+                                                               href="#technology"> <span
+                    *ngIf="language=='en'">Technology</span> <span *ngIf="language=='ar'">فني</span> </a>
+            </li>
+            <li (click)="careerType = '6'" class="nav-item"><a class="nav-link" data-toggle="tab" href="#finance"> <span
+                    *ngIf="language=='en'">Finance</span> <span *ngIf="language=='ar'">فني</span> </a>
+            </li>
+        </ul>
+
+
+        <div class="tab-content">
+            <div class="tab-pane active" id="sales">
+                <h3 *ngIf="language=='en'">Sales</h3>
+                <h3 *ngIf="language=='ar'">جنرال لواء</h3>
+
+                <div class="mat-elevation-z8">
+                    <div class="button-act-grp">
+                        <div class=" float-left drop_div">
+                            <button (click)="openAddCareerModel()" class="btn btn-primary btn-sm"
+                                    data-target="#addcategory" data-toggle="modal" type="button">Add Career <i
+                                    class="fa fa-plus"></i></button>
                         </div>
-                    </nav>
-                    <div class="tab-content" id="nav-tabContent">
-                        <div class="tab-pane fade show active" id="sales" role="tabpanel"
-                            aria-labelledby="nav-home-tab">
-                            <div class="career-tab-content">
-                                <div class="row custom-margin">
-                                    <div class="col-lg-3 col-sm-4 custom-padding"
-                                        *ngFor="let careerType of careerTypeArray">
-                                        <div class="career-content">
-                                            <h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
-                                            <h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
-                                            <p><i class="fas fa-map-marker-alt"></i> <span
-                                                    class="location-content">{{careerType.location}}</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="growthperformance" role="tabpanel"
-                            aria-labelledby="nav-profile-tab">
-                            <div class="career-tab-content">
-                                <div class="row custom-margin">
-                                    <div class="col-lg-3 col-sm-4 custom-padding"
-                                        *ngFor="let careerType of careerTypeArray">
-                                        <div class="career-content">
-                                            <h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
-                                            <h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
-                                            <p><i class="fas fa-map-marker-alt"></i> <span
-                                                    class="location-content">{{careerType.location}}</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="marketing" role="tabpanel" aria-labelledby="nav-contact-tab">
-                            <div class="career-tab-content">
-                                <div class="row custom-margin">
-                                    <div class="col-lg-3 col-sm-4 custom-padding"
-                                        *ngFor="let careerType of careerTypeArray">
-                                        <div class="career-content">
-                                            <h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
-                                            <h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
-                                            <p><i class="fas fa-map-marker-alt"></i> <span
-                                                    class="location-content">{{careerType.location}}</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="people" role="tabpanel" aria-labelledby="nav-contact-tab">
-                            <div class="career-tab-content">
-                                <div class="row custom-margin">
-                                    <div class="col-lg-3 col-sm-4 custom-padding"
-                                        *ngFor="let careerType of careerTypeArray">
-                                        <div class="career-content">
-                                            <h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
-                                            <h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
-                                            <p><i class="fas fa-map-marker-alt"></i> <span
-                                                    class="location-content">{{careerType.location}}</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="technology" role="tabpanel" aria-labelledby="nav-contact-tab">
-                            <div class="career-tab-content">
-                                <div class="row custom-margin">
-                                    <div class="col-lg-3 col-sm-4 custom-padding"
-                                        *ngFor="let careerType of careerTypeArray">
-                                        <div class="career-content">
-                                            <h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
-                                            <h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
-                                            <p><i class="fas fa-map-marker-alt"></i> <span
-                                                    class="location-content">{{careerType.location}}</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="finance" role="tabpanel" aria-labelledby="nav-contact-tab">
-                            <div class="career-tab-content">
-                                <div class="row custom-margin">
-                                    <div class="col-lg-3 col-sm-4 custom-padding"
-                                        *ngFor="let careerType of careerTypeArray">
-                                        <div class="career-content">
-                                            <h4 *ngIf="language=='en'"> {{careerType.name}}</h4>
-                                            <h4 *ngIf="language=='ar'"> {{careerType.nameArabic}}</h4>
-                                            <p><i class="fas fa-map-marker-alt"></i> <span
-                                                    class="location-content">{{careerType.location}}</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- <div class=" float-left drop_div">             <a class="delete-aal0s btn btn-danger btn-sm" id="delete_option" (click)="bulkDelete()" style="display: inline-block;"              href="javascript:;"><i class="fa fa-trash"></i></a>          </div> -->
+                        <!-- <div class="langchangepart">               <span class="englishlang">English</span>               <label class="switch">                <input type="checkbox" value="true" >                <span class="slider round"></span>              </label>              <span class="argiclang">Arbic</span>           </div> -->
                     </div>
+                    <mat-form-field class="float-right tablefilter">
+                        <input (keyup)="applyFilter($event)" matInput
+                               placeholder="Search by Career name">
+                    </mat-form-field>
+                    <div class="table-responsive">
+                        <table [dataSource]="dataSourceSales" class="mat-elevation-z8  " mat-table matSort
+                               style="    width: 100%;">
+                            <ng-container matColumnDef="select">
+                                <td *matCellDef="let row" mat-cell>
+                                    <mat-checkbox (change)="$event ? selection.toggle(row) : null"
+                                                  (click)="$event.stopPropagation()"
+                                                  [checked]="selection.isSelected(row)">
+                                    </mat-checkbox>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="name">
+                                <th *matHeaderCellDef mat-header-cell>Name</th>
+                                <td *matCellDef="let element" mat-cell>
+                                    <div>{{element?.name}}</div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="location">
+                                <th *matHeaderCellDef mat-header-cell>Location</th>
+                                <td *matCellDef="let element" mat-cell>
+                                    <div>{{element?.location}}</div>
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="action">
+                                <th *matHeaderCellDef mat-header-cell style="width:180px;">Action</th>
+                                <td *matCellDef="let element" class="datatable-ct" mat-cell>
+                                    <a (click)="patchCareer(element)"
+                                       class="btn btn-primary actnbtn"
+                                       data-target="#addcategory"
+                                       data-toggle="modal"
+                                       href="javascript:void()"> <i
+                                            aria-hidden="true" class="fa fa-edit"></i></a>
+                                    <a
+                                            (click)="viewCareer(element)"
+                                            class="btn btn-primary actnbtn"
+                                            data-target="#addcategory"
+                                            data-toggle="modal"
+                                            href="javascript:void()" style="margin: 2px;"> <i aria-hidden="true"
+                                                                                              class="fa fa-eye"></i></a>
+                                    <a
+                                            (click)="deleteCareer(element._id)"
+                                            class="on-default btn btn-danger remove-row actnbtn"><i
+                                            aria-hidden="true"
+                                            class="fa fa-trash"></i>
+                                    </a></td>
+                            </ng-container>
+                            <tr *matHeaderRowDef="displayedColumns" mat-header-row></tr>
+                            <tr *matRowDef="let row; columns: displayedColumns;" mat-row></tr>
+                        </table>
+                    </div>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 20]" [pageSize]="10" showFirstLastButtons></mat-paginator>
                 </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+    <app-admin-footer></app-admin-footer>
+    <div [hidden]="!modelShow" class="modal" id="addcategory">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title">{{modalTitle}}</h5>
+                    <button class="close" data-dismiss="modal"
+                            type="button">&times;
+                    </button>
+                </div> <!-- Modal body -->
+                <div class="modal-body">
+                    <form [formGroup]="categoryForm">
+                        <div class="row">
+
+                            <div class="col-sm-6">
+                                <h5 class="langheading">For English Language</h5>
+                                <mat-form-field class="full-width-mat">
+                                    <div class="form-outline">
+                                        <input [(ngModel)]="currentElem.name" class="form-control"
+                                               formControlName="name" id="name" matInput
+                                               placeholder="Enter name (in English)" required
+                                               rows="4">
+                                    </div>
+                                    <mat-error style="text-align:right;">This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                <h5 class="langheading">For Arabic Language</h5>
+                                <mat-form-field class="full-width-mat">
+                                    <div class="form-outline">
+                                        <input [(ngModel)]="currentElem.nameArabic" class="form-control"
+                                               formControlName="nameArabic" matInput
+                                               placeholder="Enter Name (in Arabic)"
+                                               rows="4"
+                                               style="direction: rtl;text-align:right;">
+                                    </div>
+                                    <mat-error style="direction: rtl;text-align:right;">This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+
+                            <div class="col-sm-6">
+                                <h5 class="langheading">For English Language</h5>
+                                <mat-form-field class="full-width-mat">
+                                    <div class="form-outline">
+                                        <input [(ngModel)]="currentElem.location"
+                                               class="form-control" formControlName="location"
+                                               matInput
+                                               placeholder="Enter Location"
+                                               rows="4">
+                                    </div>
+                                    <mat-error style="text-align:right;">This field is required
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+
+                            <div *ngIf="modalTitle !== 'View Career'" class="  text-right">
+                                <button (click)="addCareer()" *ngIf="modalTitle === 'Add Career'"
+                                        class="btn btn-primary"
+                                        style="margin-right: 10px;"> Save
+                                </button>
+                                <button (click)="updateCareer()" *ngIf="modalTitle === 'Edit Career'"
+                                        class="btn btn-primary"
+                                        style="margin-right: 10px;"> Update
+                                </button>
+                                <button class="btn btn-primary" data-dismiss="modal"
+                                        type="button">Close
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- Modal footer -->
             </div>
         </div>
     </div>
 </section>
+
 
 <app-admin-footer></app-admin-footer>

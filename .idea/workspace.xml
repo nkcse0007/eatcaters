@@ -3,16 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6426d37f-bec1-419b-86cd-a5e3a81b357b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/common-pages.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/common-pages.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/admin-faq/admin-faq.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/admin-faq/admin-faq.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/admin-faq/admin-faq.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/admin-faq/admin-faq.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/admin-faq/admin-faq.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/admin-faq/admin-faq.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/category/category.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/category/category.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/dashboard/dashboard.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/support/support.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/support/support.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/users/components/all-users/all-users.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/users/components/all-users/all-users.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/modules/shared/shared.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/shared/shared.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/carrers/carrers.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/carrers/carrers.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/carrers/carrers.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/carrers/carrers.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/carrers/carrers.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/modules/admin-panel/common-pages/components/carrers/carrers.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +98,8 @@
       <workItem from="1610343943083" duration="819000" />
       <workItem from="1610600161188" duration="834000" />
       <workItem from="1610601125952" duration="15830000" />
+      <workItem from="1610621728469" duration="77000" />
+      <workItem from="1611053892582" duration="7877000" />
     </task>
     <servers />
   </component>

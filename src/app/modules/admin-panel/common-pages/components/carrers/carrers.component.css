@@ -1,47 +1,122 @@
-.category-list{padding:0px; }.category-list li{margin-bottom:8px; box-shadow:0px 1px 6px #ddd;width:100%;list-style:none;  display:flex;  padding:10px 10px;border-bottom:1px solid #ddd;overflow: hidden; }.cat-image{width:40px;margin-right:70px;}.actnpart{ width:70px;}.actnpart .btn {padding:2px 4px;margin:2px 3px;font-size:14px}.cat-name {   width:84%;   padding:0px 10px;}@media screen and (max-width:767px){   .table-responsive .mat-table{min-width:750px;}}@media screen and (max-width:320px){   .tablefilter {       max-width: 140px!important;   }}
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hZG1pbi1wYW5lbC9jb21wb25lbnRzL2NhdGVnb3JpZXMvY2F0ZWdvcmllcy5jb21wb25lbnQuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGVBQWUsV0FBVyxFQUFFO0FBQzVCLGtCQUFrQixpQkFBaUIsRUFBRSwyQkFBMkIsQ0FBQyxVQUFVLENBQUMsZUFBZSxFQUFFLG1CQUFZLEVBQVosWUFBWSxHQUFHLGlCQUFpQixDQUFDLDRCQUE0QixDQUFDLGdCQUFnQixFQUFFO0FBQzdLLFdBQVcsVUFBVSxDQUFDLGlCQUFpQixDQUFDO0FBQ3hDLFdBQVcsVUFBVSxDQUFDO0FBQ3RCLGdCQUFnQixlQUFlLENBQUMsY0FBYyxDQUFDLGNBQWM7QUFDN0Q7SUFDSSxTQUFTO0lBQ1QsZ0JBQWdCO0FBQ3BCO0FBRUE7SUFDSSw2QkFBNkIsZUFBZSxDQUFDO0FBQ2pEO0FBRUE7SUFDSTtRQUNJLDBCQUEwQjtJQUM5QjtBQUNKIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9hZG1pbi1wYW5lbC9jb21wb25lbnRzL2NhdGVnb3JpZXMvY2F0ZWdvcmllcy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmNhdGVnb3J5LWxpc3R7cGFkZGluZzowcHg7IH1cclxuLmNhdGVnb3J5LWxpc3QgbGl7bWFyZ2luLWJvdHRvbTo4cHg7IGJveC1zaGFkb3c6MHB4IDFweCA2cHggI2RkZDt3aWR0aDoxMDAlO2xpc3Qtc3R5bGU6bm9uZTsgZGlzcGxheTpmbGV4OyAgcGFkZGluZzoxMHB4IDEwcHg7Ym9yZGVyLWJvdHRvbToxcHggc29saWQgI2RkZDtvdmVyZmxvdzogaGlkZGVuOyB9XHJcbi5jYXQtaW1hZ2V7d2lkdGg6NDBweDttYXJnaW4tcmlnaHQ6NzBweDt9XHJcbi5hY3RucGFydHsgd2lkdGg6NzBweDt9XHJcbi5hY3RucGFydCAuYnRuIHtwYWRkaW5nOjJweCA0cHg7bWFyZ2luOjJweCAzcHg7Zm9udC1zaXplOjE0cHh9XHJcbi5jYXQtbmFtZSB7XHJcbiAgICB3aWR0aDo4NCU7XHJcbiAgICBwYWRkaW5nOjBweCAxMHB4O1xyXG59XHJcblxyXG5AbWVkaWEgc2NyZWVuIGFuZCAobWF4LXdpZHRoOjc2N3B4KXtcclxuICAgIC50YWJsZS1yZXNwb25zaXZlIC5tYXQtdGFibGV7bWluLXdpZHRoOjc1MHB4O31cclxufVxyXG5cclxuQG1lZGlhIHNjcmVlbiBhbmQgKG1heC13aWR0aDozMjBweCl7XHJcbiAgICAudGFibGVmaWx0ZXIge1xyXG4gICAgICAgIG1heC13aWR0aDogMTQwcHghaW1wb3J0YW50O1xyXG4gICAgfVxyXG59Il19 */
-
-
-
-/**career page*/
-.inner-pages-content{padding-top:0px;}
-.career-section{padding:0px 0px 60px;background: #fff;}
-.career-content{padding:15px;border:1px solid #eee;border-left: 3px solid #7fd82a;margin:10px 0px;
-    border-radius: 3px;background: #fff;box-shadow:1px 2px 8px #f5f5f5;min-height:115px;}
-.career-content h4{font-size:15px; font-weight:500;color:#7fd82a;}
-.career-content p{color:#999;font-size:13px;margin-bottom: 0px;}
-.custom-padding{padding:0px 8px;}
-.location-content {
-    margin-right: 3px;
+/* .admin-faq-section{padding: 0px 0px 40px;margin:40px auto 0px;max-width: 800px;
+    border:1px solid #ddd;
 }
-.custom-margin{margin:0px -8px;}
-.career-content p .fas {
-    margin-right: 7px;
-    font-size: 12px;
-}
-.tab-content-section {max-width: 1200px;margin:auto;
-    padding: 0px 0px;
+
+.admin-faq-section .page-title{background:#75ad3f;margin-top: 0px;padding:13px 10px;border:none;color:#fff;}
+.bgwhitepart{padding:15px 20px 0px} */
+
+
+/*faq**/
+.faq-section{padding:0px 0px 60px;}
+
+
+.faqtabs {
     /* background: #fbfbfb; */
+    /* border:1px solid #ddd; */
+    margin-bottom:20px;
 }
-.nav-tabs { 
-    background: #fff;margin-bottom: 10px;;
+.faqtabs li a.nav-link {
+    padding: 15px 20px;border:none;
+    border-bottom: 1px solid #ddd;
+    color: #000;
+    /* font-weight: 600; */
 }
-.nav-tabs .nav-link{font-weight:500;border:none;border-bottom:2px solid transparent!important;padding:10px 27px;color:#333;}
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active, .nav-tabs .nav-link:hover {
-    color: #7fd82a;
-    background-color: #fff;
-   border:none;border-bottom:2px solid #7fd82a!important;
+.faqtabs li a.nav-link.active,.faqtabs li a.nav-link:hover{ border:none;color:#75ad3f;position:relative}
+.faqtabs li a.nav-link.active::after{    content: "";
+
+    position: absolute;
+    height: 3px;
+    /* border-right: 1px solid #75ad3f;
+    border-top: 1px solid #75ad3f;
+    transform: rotate(45deg);
+    padding: 3px; */
+    bottom:-3px;width:100%;
+    transition: all 0.5s;left:0;
+    background: #75ad3f;}
+.panel-title>a, .panel-title>a:active{
+    display:block;
+    padding:20px 15px;
+    color:#555;background:#fff;
+    font-size:16px;
+    /* font-weight:600;  */
+    word-spacing:3px;
+    text-decoration:none;
 }
-@media screen and (max-width:1024px){
-    .nav-tabs .nav-link{padding:10px 15px;}
+.panel-title>a.collcollapsed{background:#fff}
+.panel-heading  a.collapsed:before {
+    content: "";right:50px; position: absolute;width:10px; height:10px;  border-right: 0.2em solid black;
+    border-top: 0.2em solid black;;transform:rotate(136deg);
+    padding:3px;
+    transition: all 0.5s;
 }
-@media screen and (max-width:992px){
-    .nav-tabs .nav-link{padding:10px 10px;}
+.panel-heading a:before {
+    content: "";right:50px; position: absolute;width:10px; height:10px;  border-right: 0.2em solid black;
+    border-top: 0.2em solid black;;transform:rotate(-45deg);
+    padding:3px;
+    transition: all 0.5s;
 }
-@media screen and (max-width:450px){
-    .nav-tabs .nav-link {
-        padding: 6px 11px;
-        font-weight: 500;
+.panel-default{border:1px solid #ddd;margin-bottom:2px;}
+.panel-title{margin-bottom:0px;}
+.panel-heading{background:#fbfbfb}
+.tab-content h3{font-size:23px; font-weight: 600;margin-bottom:20px;}
+.panel-body{padding:15px;font-size:16px;    line-height: 30px;
+    color: #888;}
+@media screen and (max-width:767px){
+    .faq-section{padding-top:0px;}
+}
+@media screen and (max-width:576px){
+    .faqtabs {
+        display: flex;
+        flex-direction: row !important;min-height:10px;margin-bottom:30px;
+    }
+    .faqtabs li a.nav-link {
+        padding: 15px 13px;}
+
+    .panel-title>a, .panel-title>a:active {
+        padding: 16px 29px 16px 10px;
         font-size: 15px;
+        word-spacing:0px;
+        text-decoration: none;
+    }
+    .panel-heading a:before , .panel-heading a.collapsed:before{
+        content: "";
+        right:24px;
+        width: 10px;
+        height: 10px;
+
     }
 }
+@media screen and (max-width:320px){
+    .faqtabs li a.nav-link {
+        padding: 15px 9px;
+        display: block;
+        font-size: 14px;
+    }
+}
+/*faq end**/
+
+
+
+
+.details-list {
+    padding: 0px;
+}
+
+.details-list li {
+    display: -webkit-box;
+    display: flex;;
+    width: 100%;
+    padding: 8px 0px;
+}
+
+.details-list li .info-label {
+    font-weight: 600;
+    width: 70%;
+    color: #555;
+}
+
+.details-list li .infovalue {
+    float: right;
+}
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvbW9kdWxlcy9hZG1pbi1wYW5lbC91c2Vycy9jb21wb25lbnRzL2FsbC11c2Vycy9hbGwtdXNlcnMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxjQUFjLFdBQVcsQ0FBQztBQUMxQixpQkFBaUIsb0JBQWEsQ0FBYixhQUFhLEVBQUUsVUFBVSxDQUFDLGVBQWUsQ0FBQztBQUMzRCw2QkFBNkIsZ0JBQWdCLENBQUMsU0FBUyxDQUFDLFdBQVcsQ0FBQztBQUNwRSw0QkFBNEIsV0FBVyxDQUFDIiwiZmlsZSI6InNyYy9hcHAvbW9kdWxlcy9hZG1pbi1wYW5lbC91c2Vycy9jb21wb25lbnRzL2FsbC11c2Vycy9hbGwtdXNlcnMuY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5kZXRhaWxzLWxpc3R7cGFkZGluZzowcHg7fVxyXG4uZGV0YWlscy1saXN0IGxpe2Rpc3BsYXk6IGZsZXg7O3dpZHRoOjEwMCU7cGFkZGluZzo4cHggMHB4O31cclxuLmRldGFpbHMtbGlzdCBsaSAuaW5mby1sYWJlbHtmb250LXdlaWdodDogNjAwO3dpZHRoOjcwJTtjb2xvcjogIzU1NTt9XHJcbi5kZXRhaWxzLWxpc3QgbGkgLmluZm92YWx1ZXtmbG9hdDpyaWdodDt9Il19 */
